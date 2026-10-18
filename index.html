@@ -1,0 +1,1621 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#121714">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="S&amp;S">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<!-- Built from app.html by tools/build-pages.py. Edit app.html, not this file. -->
+</head>
+<body>
+<title>Sawdust &amp; Soil</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Figtree:wght@400;500;600&display=swap">
+<style>
+:root{
+--bg:#eef1ed;--surface:#fbfcfa;--raise:#e4e9e3;--line:#cdd6ce;--fg:#18201a;--muted:#5a6a5f;
+--leaf:#2f7a49;--timber:#94602a;--ok:#2f7a49;--warn:#8f630a;--bad:#b33a2a;--on-accent:#ffffff;
+--sp:#2f7a49;--su:#a3650f;--au:#ad4722;--wi:#3a6888;
+--c1:#a8326e;--c2:#2f7a49;--c3:#b98400;--c4:#3a6888;
+--season:var(--sp);--acc:var(--leaf);
+--display:'Atkinson Hyperlegible',system-ui,sans-serif;--body:'Figtree',system-ui,sans-serif;--mono:'Atkinson Hyperlegible Mono',ui-monospace,monospace;
+color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+--bg:#121714;--surface:#19201b;--raise:#222b25;--line:#2f3a32;--fg:#e8eee8;--muted:#9aaa9f;
+--leaf:#7cc08e;--timber:#d9a96f;--ok:#7cc08e;--warn:#e3b45a;--bad:#f08a7a;--on-accent:#10140f;
+--sp:#7cc08e;--su:#e3b45a;--au:#ee8a63;--wi:#86b4d6;
+--c1:#e48ab8;--c2:#7cc08e;--c3:#e6c15a;--c4:#86b4d6;
+color-scheme:dark}}
+:root[data-theme="dark"]{
+--bg:#121714;--surface:#19201b;--raise:#222b25;--line:#2f3a32;--fg:#e8eee8;--muted:#9aaa9f;
+--leaf:#7cc08e;--timber:#d9a96f;--ok:#7cc08e;--warn:#e3b45a;--bad:#f08a7a;--on-accent:#10140f;
+--sp:#7cc08e;--su:#e3b45a;--au:#ee8a63;--wi:#86b4d6;
+--c1:#e48ab8;--c2:#7cc08e;--c3:#e6c15a;--c4:#86b4d6;
+color-scheme:dark}
+:root[data-season="spring"]{--season:var(--sp)}
+:root[data-season="summer"]{--season:var(--su)}
+:root[data-season="autumn"]{--season:var(--au)}
+:root[data-season="winter"]{--season:var(--wi)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 15px/1.5 var(--body)}
+h1,h2,h3,h4{font-family:var(--display);text-wrap:balance;line-height:1.2;margin:0;font-weight:700}
+h1{font-size:clamp(28px,6vw,40px)}
+h2{font-size:22px}
+h3{font-size:16px;margin-bottom:8px}
+p{margin:0 0 .6em}
+ul,ol{margin:0;padding-left:1.25em}
+li{margin:.2em 0}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));padding-block:16px 64px}
+.top{display:flex;align-items:center;gap:10px;padding-block:6px 14px;flex-wrap:wrap}
+.mark{color:var(--season);flex:none}
+.word{font:700 20px/1 var(--display)}
+.chip{margin-left:auto;font:500 12.5px/1 var(--mono);font-variant-numeric:tabular-nums;border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:7px 12px;white-space:nowrap}
+.chip b{color:var(--season);font-weight:600}
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;gap:4px;background:var(--bg);border-bottom:1px solid var(--line);padding-block:6px;margin-bottom:22px;overflow-x:auto}
+.tabs a{flex:1 0 auto;text-align:center;padding:10px 16px;border-radius:10px;text-decoration:none;color:var(--muted);font:600 14.5px/1 var(--display);border:1px solid transparent}
+.tabs a[aria-selected="true"]{color:var(--fg);background:var(--surface);border-color:var(--line);box-shadow:inset 0 -3px 0 var(--season)}
+.page{--acc:var(--leaf)}
+#page-workshop{--acc:var(--timber)}
+.eyebrow{font:700 11px/1.2 var(--display);text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;min-width:0}
+.sec{margin-top:40px}
+.sec>.eyebrow{margin-bottom:6px;color:var(--acc)}
+.sec>h2{margin-bottom:14px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.grid2>*,.grid3>*{min-width:0}
+.grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+@media (max-width:760px){.grid2{grid-template-columns:minmax(0,1fr)}}
+.btn{display:inline-flex;align-items:center;gap:6px;background:var(--raise);border:1px solid var(--line);color:var(--fg);border-radius:10px;padding:9px 14px;font:600 14px/1.2 var(--display);cursor:pointer;min-height:40px}
+.btn:hover{border-color:var(--muted)}
+.btn-primary{background:var(--acc);border-color:var(--acc);color:var(--on-accent)}
+.btn-primary:hover{filter:brightness(1.07)}
+.btn-link{background:none;border:0;padding:4px 0;color:var(--muted);text-decoration:underline;cursor:pointer;font-size:13.5px}
+.pill{display:inline-block;font:600 12.5px/1 var(--display);border-radius:99px;padding:6px 11px;border:1px solid var(--line);background:var(--surface)}
+.pill.season{border-color:var(--season);color:var(--season)}
+.pill.ok{border-color:var(--ok);color:var(--ok)}
+.pill.warn{border-color:var(--warn);color:var(--warn)}
+.pill.bad{border-color:var(--bad);color:var(--bad)}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 8px}
+.skills{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.skills span{font:500 12.5px/1 var(--body);background:var(--raise);border-radius:99px;padding:6px 10px}
+.hero{padding-block:8px 6px;max-width:720px}
+.hero .sub{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.card h3{margin-bottom:6px}
+.card.g{border-top:3px solid var(--leaf)}
+.card.w{border-top:3px solid var(--timber)}
+.bar{display:flex;height:34px;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--surface);min-width:0}
+.prog{height:12px;border-radius:99px;background:var(--raise);overflow:hidden;border:1px solid var(--line)}
+.prog>i{display:block;height:100%;background:var(--leaf)}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.row>*{min-width:0}
+.chk{display:flex;gap:10px;align-items:flex-start;padding:6px 0;cursor:pointer}
+.chk input{margin-top:4px;width:18px;height:18px;accent-color:var(--acc);flex:none}
+.chk.done span{color:var(--muted);text-decoration:line-through}
+.path{list-style:none;padding:0;counter-reset:step;display:grid;gap:10px}
+.path li{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:10px;align-items:start;margin:0;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.path .n{font:700 18px/34px var(--mono);color:var(--timber);width:34px;height:34px;border-radius:50%;border:1.5px solid var(--timber);text-align:center;line-height:31px}
+.path .built{font-size:13.5px}
+@media (max-width:520px){.path li{grid-template-columns:34px minmax(0,1fr)}.path .built{grid-column:2}}
+.phase{border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:14px 16px}
+.phase.now{border-color:var(--leaf);box-shadow:inset 4px 0 0 var(--leaf)}
+.phase .ph{display:flex;gap:8px 14px;flex-wrap:wrap;align-items:baseline;justify-content:space-between}
+.phases{display:grid;gap:12px}
+.kr{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:6px 16px;padding:12px 0;border-top:1px solid var(--line)}
+.kr:first-child{border-top:0}
+.kr b{font-family:var(--display)}
+.kr .v{font:600 11px/1 var(--display);text-transform:uppercase;letter-spacing:.09em;display:inline-block;margin-bottom:4px}
+.kr .v.keep{color:var(--ok)}.kr .v.remove{color:var(--bad)}.kr .v.depends{color:var(--warn)}
+@media (max-width:560px){.kr{grid-template-columns:minmax(0,1fr)}}
+.layout{display:grid;grid-template-columns:330px minmax(0,1fr);gap:22px;align-items:start}
+.layout>*{min-width:0}
+.ctl{position:sticky;top:calc(env(safe-area-inset-top,0px) + 70px);max-height:calc(100vh - 90px);overflow-y:auto}
+@media (max-width:900px){.layout{grid-template-columns:minmax(0,1fr)}.ctl{position:static;max-height:none}}
+.out{display:grid;gap:22px;min-width:0}
+.out>*{min-width:0}
+.fld{margin-bottom:14px}
+.fld label{display:block;font:600 13.5px/1.3 var(--display);margin-bottom:5px}
+.frow{display:flex;gap:10px;align-items:center}
+.frow input[type=range]{flex:1;min-width:0;accent-color:var(--acc);height:28px}
+.num{display:flex;align-items:center;gap:5px;flex:none}
+.num input{width:78px;padding:7px 8px;border:1px solid var(--line);background:var(--bg);border-radius:8px;font:500 14px var(--mono);font-variant-numeric:tabular-nums;text-align:right}
+.unit{font:400 12.5px var(--mono);color:var(--muted);min-width:22px}
+.fld select{width:100%;padding:9px 10px;border:1px solid var(--line);background:var(--bg);border-radius:8px}
+.hint{font-size:12.5px;color:var(--muted);margin-top:3px}
+details.panel summary{cursor:pointer;font:600 14px var(--display)}
+details.panel[open] summary{margin-bottom:12px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;min-width:0}
+.stat .k{font:700 10.5px/1.2 var(--display);text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
+.stat .v{font:600 21px/1.25 var(--mono);font-variant-numeric:tabular-nums;color:var(--acc);overflow-wrap:anywhere}
+.stat .u{font:400 12px var(--mono);color:var(--muted)}
+.svgwrap{overflow-x:auto;margin-top:10px}
+.svgwrap svg{display:block;width:100%;min-width:480px;height:auto}
+.cap{font-size:12.5px;color:var(--muted);margin-top:6px}
+.checks{list-style:none;padding:0;display:grid;gap:8px}
+.checks li{display:grid;grid-template-columns:62px minmax(0,1fr);gap:10px;align-items:start;margin:0}
+.mk{font:700 10.5px/1 var(--display);text-transform:uppercase;letter-spacing:.07em;text-align:center;border-radius:6px;padding:5px 0;border:1px solid var(--line)}
+.mk.ok{color:var(--ok);border-color:var(--ok)}
+.mk.warn{color:var(--warn);border-color:var(--warn)}
+.mk.bad{color:var(--bad);border-color:var(--bad)}
+.mk.info{color:var(--muted)}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:700 11px/1.2 var(--display);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.m,th.m{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.r,th.r{text-align:right}
+.plan{margin-bottom:16px}
+.plan .pc{font-size:13.5px;margin-bottom:8px}
+.bin{display:flex;gap:8px;align-items:center;margin-bottom:5px}
+.bn{font:500 11px var(--mono);color:var(--muted);width:20px;text-align:right;flex:none}
+.bin .bar{flex:1}
+.seg{height:100%;min-width:0;overflow:hidden;border-right:1px solid var(--surface);display:flex;align-items:center;padding:0 4px;font:500 10.5px var(--mono);white-space:nowrap;flex-shrink:0}
+.seg span{overflow:hidden;text-overflow:ellipsis}
+.s0{background:color-mix(in srgb,var(--acc) 30%,var(--surface))}
+.s1{background:color-mix(in srgb,var(--acc) 18%,var(--surface))}
+.s2{background:color-mix(in srgb,var(--acc) 42%,var(--surface))}
+.s3{background:color-mix(in srgb,var(--acc) 12%,var(--raise))}
+.seg.over{background:color-mix(in srgb,var(--bad) 30%,var(--surface))}
+.seg.waste{background:repeating-linear-gradient(45deg,var(--line) 0 3px,var(--surface) 3px 8px);border-right:0;flex-shrink:1}
+.buy{list-style:none;padding:0}
+.buy li{display:grid;grid-template-columns:minmax(52px,auto) minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--line);margin:0}
+.buy li:last-child{border-bottom:0}
+.q{font:600 13.5px var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.src{font:600 11px/1 var(--display);background:var(--raise);border-radius:99px;padding:5px 9px;white-space:nowrap}
+.steps{display:grid;gap:8px;padding-left:1.6em}
+.steps li{padding-left:4px}
+.steps li::marker{font:700 14px var(--mono);color:var(--acc)}
+.phead{margin-bottom:18px}
+.phead .st{font:700 12px var(--mono);color:var(--acc);letter-spacing:.06em;text-transform:uppercase}
+.phead p{max-width:62ch;color:var(--muted);margin-top:6px}
+.stabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.stabs button{background:var(--surface);border:1px solid var(--line);border-radius:99px;padding:8px 14px;cursor:pointer;font:600 13.5px var(--display);color:var(--muted)}
+.stabs button[aria-selected="true"]{background:var(--acc);border-color:var(--acc);color:var(--on-accent)}
+.pcard h3{display:flex;justify-content:space-between;gap:8px;align-items:baseline;flex-wrap:wrap}
+.pcard .bot{font-style:italic;color:var(--muted);font-size:13px;margin-bottom:8px}
+.pcard dl{margin:8px 0 0;display:grid;grid-template-columns:76px minmax(0,1fr);gap:4px 10px;font-size:13.5px}
+.pcard dt{color:var(--muted);font:600 11px/1.9 var(--display);text-transform:uppercase;letter-spacing:.07em}
+.pcard dd{margin:0}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}
+.legend{display:flex;gap:6px 16px;flex-wrap:wrap;margin-top:8px;font-size:13px}
+.lg1{background:var(--c1)}.lg2{background:var(--c2)}.lg3{background:var(--c3)}.lg4{background:var(--c4)}
+.gl{display:grid;gap:10px;margin-bottom:22px}
+.li{display:grid;grid-template-columns:24px 64px minmax(0,1fr) auto auto;gap:10px;align-items:center;padding:8px 12px;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.li input{width:18px;height:18px;accent-color:var(--acc)}
+.li.done .t{text-decoration:line-through;color:var(--muted)}
+.li .tag{font:600 11px var(--display);color:var(--muted)}
+.li .starter{font:700 10px var(--display);text-transform:uppercase;letter-spacing:.07em;color:var(--leaf);border:1px solid var(--leaf);border-radius:99px;padding:3px 7px}
+@media (max-width:560px){.li{grid-template-columns:24px 52px minmax(0,1fr) auto}.li .tag{grid-column:3;grid-row:2}}
+.addf{display:grid;grid-template-columns:minmax(0,2fr) 90px minmax(0,1fr) auto;gap:10px;align-items:end}
+.addf>*{min-width:0}
+.addf label{display:block;font:600 12.5px var(--display);margin-bottom:4px}
+.addf input,.addf select,#list_copy_area{width:100%;padding:9px 10px;border:1px solid var(--line);background:var(--bg);border-radius:8px}
+@media (max-width:700px){.addf{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.addf .wide{grid-column:1/-1}}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);border-radius:10px;padding:10px 16px;font:600 14px var(--display);opacity:0;pointer-events:none;max-width:90vw;z-index:50}
+.toast.on{opacity:1}
+@media (prefers-reduced-motion:no-preference){.toast{transition:opacity .2s}.prog>i{transition:width .3s}}
+/* svg */
+.pc{stroke:var(--fg);fill:var(--surface);stroke-width:1.25}
+.pa{fill:color-mix(in srgb,var(--acc) 22%,var(--surface));stroke:var(--acc);stroke-width:1.25}
+.pf{stroke:var(--fg);stroke-width:1}
+.ln{stroke:var(--fg);fill:none;stroke-width:1.25}
+.br{stroke:var(--acc);fill:none;stroke-width:3;stroke-linecap:round}
+.dim{stroke:var(--muted);fill:none;stroke-width:1}
+.lbl{fill:var(--muted);font:11px var(--mono)}
+.op{fill:var(--raise);stroke:var(--line);stroke-width:1}
+.bed{fill:color-mix(in srgb,var(--timber) 14%,var(--raise));stroke:var(--line);stroke-width:1}
+.grav{fill:var(--raise);stroke:var(--line);stroke-width:1}
+.edge{stroke:var(--acc);fill:none;stroke-width:3;stroke-linecap:round}
+.cn1,.cn2,.cn3,.cn4{fill-opacity:.2;stroke-width:1}
+.cn1{fill:var(--c1);stroke:var(--c1)}.cn2{fill:var(--c2);stroke:var(--c2)}.cn3{fill:var(--c3);stroke:var(--c3)}.cn4{fill:var(--c4);stroke:var(--c4)}
+.cd1{fill:var(--c1);stroke:var(--surface);stroke-width:.5}.cd2{fill:var(--c2);stroke:var(--surface);stroke-width:.5}.cd3{fill:var(--c3);stroke:var(--surface);stroke-width:.5}.cd4{fill:var(--c4);stroke:var(--surface);stroke-width:.5}
+.bk0{fill:color-mix(in srgb,var(--timber) 55%,var(--surface));stroke:var(--surface);stroke-width:.4}
+.bk1{fill:color-mix(in srgb,var(--leaf) 45%,var(--surface));stroke:var(--surface);stroke-width:.4}
+.bk2{fill:color-mix(in srgb,var(--c4) 45%,var(--surface));stroke:var(--surface);stroke-width:.4}
+.bk3{fill:color-mix(in srgb,var(--c1) 38%,var(--surface));stroke:var(--surface);stroke-width:.4}
+.ob{fill:color-mix(in srgb,var(--muted) 40%,var(--surface));stroke:var(--muted);stroke-width:1}
+.led{stroke:var(--warn);fill:none;stroke-width:3;stroke-linecap:round}
+.glow{stroke:var(--warn);fill:none;stroke-width:9;stroke-linecap:round;stroke-opacity:.25}
+.pt-bg{fill:var(--surface)}
+.pt-clear{fill:none}
+.pt-ln{stroke:var(--muted);stroke-width:1;fill:none}
+.pt-ac{stroke:var(--acc);stroke-width:1;fill:none}
+.pt-rope{stroke:var(--timber);stroke-width:1.5;fill:none}
+.sync{display:flex;align-items:center;gap:8px;font:500 12.5px/1.2 var(--mono);color:var(--muted);flex-wrap:wrap}
+.sync .sd{width:9px;height:9px;border-radius:50%;background:var(--muted);flex:none}
+.sync[data-s="ok"] .sd{background:var(--ok)}
+.sync[data-s="busy"] .sd{background:var(--warn)}
+.sync[data-s="err"] .sd{background:var(--bad)}
+.sync .btn{min-height:32px;padding:5px 11px;font-size:13px}
+.note{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;background:var(--surface);border:1px solid var(--bad);border-left-width:4px;border-radius:10px;padding:10px 12px;margin-bottom:14px;font-size:13.5px}
+.note button{background:none;border:0;cursor:pointer;color:var(--muted);font:600 13px var(--display);text-decoration:underline;flex:none;padding:2px 4px}
+dialog.gd{background:var(--surface);color:var(--fg);border:1px solid var(--line);border-radius:14px;padding:20px;max-width:min(460px,calc(100vw - 32px));width:100%}
+dialog.gd::backdrop{background:rgba(0,0,0,.45)}
+dialog.gd input{width:100%;padding:9px 10px;border:1px solid var(--line);background:var(--bg);border-radius:8px;margin:8px 0 4px}
+dialog.gd .row{margin-top:14px;justify-content:flex-end}
+@media (prefers-reduced-motion:no-preference){.sync[data-s="busy"] .sd{animation:ssp 1s ease-in-out infinite alternate}@keyframes ssp{to{opacity:.3}}}
+</style>
+<div class="wrap" id="app">
+<header class="top">
+<svg class="mark" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 19C6 10 13 5 26 5C26 17 20 24 10 24C8 24 6.4 22 6 19Z"/><path d="M4 28L28 4"/><path d="M10.5 21.5L12.3 23.3M16 16L17.8 17.8M21.5 10.5L23.3 12.3"/></svg>
+<span class="word">Sawdust &amp; Soil</span>
+<span class="chip" id="chip"></span>
+</header>
+<nav class="tabs" role="tablist" aria-label="Sections">
+<a role="tab" id="tab-today" href="#today" aria-controls="page-today" aria-selected="true">Today</a>
+<a role="tab" id="tab-garden" href="#garden" aria-controls="page-garden" aria-selected="false">Garden</a>
+<a role="tab" id="tab-workshop" href="#workshop" aria-controls="page-workshop" aria-selected="false">Workshop</a>
+<a role="tab" id="tab-list" href="#list" aria-controls="page-list" aria-selected="false">List</a>
+</nav>
+<main>
+<section class="page" id="page-today" role="tabpanel" aria-labelledby="tab-today"></section>
+<section class="page" id="page-garden" role="tabpanel" aria-labelledby="tab-garden" hidden></section>
+<section class="page" id="page-workshop" role="tabpanel" aria-labelledby="tab-workshop" hidden></section>
+<section class="page" id="page-list" role="tabpanel" aria-labelledby="tab-list" hidden></section>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+<script>
+(function(){
+'use strict';
+var PAGES=['today','garden','workshop','list'];
+var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+var THIN=' ';
+function $(s,r){return (r||document).querySelector(s)}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function seasonOf(m){return (m>=11||m<=1)?'summer':m<=4?'autumn':m<=7?'winter':'spring'}
+function ce(x){return Math.ceil(x-1e-9)}
+function slug(s){return String(s).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+function r1(x){return Math.round(x*10)/10}
+
+/* storage */
+var mem={};
+function lsGet(k,d){try{var v=localStorage.getItem('ss_'+k);if(v!==null)return JSON.parse(v)}catch(e){}return (k in mem)?mem[k]:d}
+var syncHook=function(){};
+function lsSet(k,v){mem[k]=v;try{localStorage.setItem('ss_'+k,JSON.stringify(v))}catch(e){}try{syncHook(k)}catch(e){}}
+function lsHas(k){try{if(localStorage.getItem('ss_'+k)!==null)return true}catch(e){}return k in mem}
+
+/* formatting */
+function fmm(v){var n=Math.round(+v);if(!isFinite(n))return '0';var s=String(Math.abs(n)).replace(/\B(?=(\d{3})+(?!\d))/g,THIN);return n<0?'-'+s:s}
+function fm(v){v=+v;if(!isFinite(v))return '0';var s=Math.abs(v)>=10?v.toFixed(1):v.toFixed(2);return s.replace(/\.(\d)0$/,'.$1').replace(/\.0$/,'')}
+function money(v){v=Math.round(+v);if(!isFinite(v))v=0;return '$'+String(v).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
+function dims(l,w,t){return fmm(l)+' × '+fmm(w)+' × '+fmm(t)}
+
+/* packing */
+function pack(pieces,stock,kerf){
+  if(kerf==null)kerf=3;
+  var items=[];
+  pieces.forEach(function(p){var q=Math.max(0,Math.floor(+p.qty||0));for(var i=0;i<q;i++)items.push({len:+p.len,label:p.label})});
+  items.sort(function(a,b){return b.len-a.len});
+  var bins=[];
+  items.forEach(function(it){
+    if(it.len>stock){bins.push({stock:stock,items:[it],used:it.len,over:true});return}
+    var tgt=null;
+    for(var i=0;i<bins.length;i++){var b=bins[i];if(!b.over&&b.used+kerf+it.len<=stock){tgt=b;break}}
+    if(tgt){tgt.items.push(it);tgt.used+=kerf+it.len}
+    else bins.push({stock:stock,items:[it],used:it.len,over:false});
+  });
+  return bins;
+}
+function bestStock(pieces,options,kerf){
+  if(kerf==null)kerf=3;
+  var best=null;
+  options.forEach(function(s){
+    var bins=pack(pieces,s,kerf);
+    if(bins.some(function(b){return b.over}))return;
+    var total=bins.length*s;
+    if(!best||total<best.total||(total===best.total&&bins.length<best.bins.length))best={stock:s,bins:bins,total:total};
+  });
+  if(!best){var s=Math.max.apply(null,options);var bins=pack(pieces,s,kerf);best={stock:s,bins:bins,total:bins.length*s,over:true}}
+  return best;
+}
+function labelIdx(s){var h=0;for(var i=0;i<s.length;i++)h=(h+s.charCodeAt(i))%4;return h}
+function planHTML(pl){
+  var stock=pl.stock;
+  var rows=pl.bins.map(function(b,i){
+    var tot=0;
+    var segs=b.items.map(function(it){
+      var pct=Math.min(100,it.len/stock*100);tot+=pct;
+      return '<div class="seg s'+labelIdx(it.label)+(b.over?' over':'')+'" style="flex:0 0 '+pct.toFixed(3)+'%" title="'+esc(it.label)+' '+fmm(it.len)+' mm">'+(pct>9?'<span>'+esc(it.label)+' '+fmm(it.len)+'</span>':'')+'</div>';
+    }).join('');
+    var w=Math.max(0,100-tot);
+    return '<div class="bin"><span class="bn">'+(i+1)+'</span><div class="bar" role="img" aria-label="Piece '+(i+1)+' cutting layout">'+segs+(w>0.01?'<div class="seg waste" style="flex:0 0 '+w.toFixed(3)+'%"></div>':'')+'</div></div>';
+  }).join('');
+  return '<div class="plan"><div class="pc"><b>'+esc(pl.title)+'</b><br>'+pl.caption+'</div>'+rows+'</div>';
+}
+
+/* SVG sheet */
+var PID=0;
+function Sheet(wmm,hmm){
+  wmm=Math.max(1,+wmm||1);hmm=Math.max(1,+hmm||1);
+  var pad=60,VW=680;
+  var VH=Math.max(240,Math.min(560,2*pad+560*hmm/wmm));
+  var s=Math.min((VW-2*pad)/wmm,(VH-2*pad)/hmm);
+  var ox=pad+((VW-2*pad)-wmm*s)/2,oy=pad+((VH-2*pad)-hmm*s)/2;
+  var X=function(v){return ox+v*s},Y=function(v){return VH-oy-v*s};
+  var out=[],defs=[],have={},id=++PID;
+  var f=function(n){return Math.round(n*100)/100};
+  var o={X:X,Y:Y,s:s,VH:VH};
+  o.rect=function(x,y,w,h,cls,fill){out.push('<rect x="'+f(X(x))+'" y="'+f(Y(y+h))+'" width="'+f(Math.max(0,w*s))+'" height="'+f(Math.max(0,h*s))+'" class="'+(cls||'pc')+'"'+(fill?' fill="'+fill+'"':'')+'/>')};
+  o.line=function(x1,y1,x2,y2,cls){out.push('<line x1="'+f(X(x1))+'" y1="'+f(Y(y1))+'" x2="'+f(X(x2))+'" y2="'+f(Y(y2))+'" class="'+(cls||'ln')+'" fill="none"/>')};
+  o.poly=function(pts,cls,fill){out.push('<polygon points="'+pts.map(function(p){return f(X(p[0]))+','+f(Y(p[1]))}).join(' ')+'" class="'+(cls||'pc')+'"'+(fill?' fill="'+fill+'"':'')+'/>')};
+  o.circle=function(cx,cy,r,cls,px){out.push('<circle cx="'+f(X(cx))+'" cy="'+f(Y(cy))+'" r="'+f(px?r:r*s)+'" class="'+cls+'"/>')};
+  o.ellipse=function(cx,cy,rx,ry,cls){out.push('<ellipse cx="'+f(X(cx))+'" cy="'+f(Y(cy))+'" rx="'+f(rx*s)+'" ry="'+f(ry*s)+'" class="'+cls+'"/>')};
+  o.text=function(x,y,str,cls,anchor,dx,dy){out.push('<text x="'+f(X(x)+(dx||0))+'" y="'+f(Y(y)+(dy||0))+'" class="'+(cls||'lbl')+'" text-anchor="'+(anchor||'middle')+'" fill="currentColor" style="fill:var(--muted)">'+esc(str)+'</text>')};
+  o.dimH=function(x1,x2,y,label,off){
+    off=off==null?28:off;
+    var a=X(x1),b=X(x2),y0=Y(y),yy=y0+off,e=off>=0?4:-4,g=off>=0?3:-3;
+    out.push('<g><line class="dim" x1="'+f(a)+'" y1="'+f(y0+g)+'" x2="'+f(a)+'" y2="'+f(yy+e)+'"/><line class="dim" x1="'+f(b)+'" y1="'+f(y0+g)+'" x2="'+f(b)+'" y2="'+f(yy+e)+'"/><line class="dim" x1="'+f(a)+'" y1="'+f(yy)+'" x2="'+f(b)+'" y2="'+f(yy)+'"/><line class="dim" x1="'+f(a-4)+'" y1="'+f(yy+4)+'" x2="'+f(a+4)+'" y2="'+f(yy-4)+'"/><line class="dim" x1="'+f(b-4)+'" y1="'+f(yy+4)+'" x2="'+f(b+4)+'" y2="'+f(yy-4)+'"/><text class="lbl" x="'+f((a+b)/2)+'" y="'+f(yy-5)+'" text-anchor="middle" style="fill:var(--muted)">'+esc(label)+'</text></g>');
+  };
+  o.dimV=function(y1,y2,x,label,off){
+    off=off==null?28:off;
+    var a=Y(y1),b=Y(y2),x0=X(x),xx=x0+off,e=off>=0?4:-4,g=off>=0?3:-3;
+    var tx=off>=0?xx+14:xx-5;
+    out.push('<g><line class="dim" x1="'+f(x0+g)+'" y1="'+f(a)+'" x2="'+f(xx+e)+'" y2="'+f(a)+'"/><line class="dim" x1="'+f(x0+g)+'" y1="'+f(b)+'" x2="'+f(xx+e)+'" y2="'+f(b)+'"/><line class="dim" x1="'+f(xx)+'" y1="'+f(a)+'" x2="'+f(xx)+'" y2="'+f(b)+'"/><line class="dim" x1="'+f(xx-4)+'" y1="'+f(a+4)+'" x2="'+f(xx+4)+'" y2="'+f(a-4)+'"/><line class="dim" x1="'+f(xx-4)+'" y1="'+f(b+4)+'" x2="'+f(xx+4)+'" y2="'+f(b-4)+'"/><text class="lbl" transform="translate('+f(tx)+','+f((a+b)/2)+') rotate(-90)" text-anchor="middle" style="fill:var(--muted)">'+esc(label)+'</text></g>');
+  };
+  o.pat=function(kind){
+    var pid='sp'+id+'_'+kind;
+    if(!have[kind]){
+      have[kind]=1;
+      if(kind==='hatch')defs.push('<pattern id="'+pid+'" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="7" height="7" class="pt-bg" fill="none"/><line x1="0" y1="0" x2="0" y2="7" class="pt-ln"/></pattern>');
+      else if(kind==='mesh')defs.push('<pattern id="'+pid+'" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" class="pt-clear" fill="none"/><path d="M0 0H6M0 0V6" class="pt-ln"/></pattern>');
+      else if(kind==='rope')defs.push('<pattern id="'+pid+'" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-30)"><rect width="6" height="6" class="pt-bg" fill="none"/><line x1="0" y1="0" x2="0" y2="6" class="pt-rope"/></pattern>');
+      else defs.push('<pattern id="'+pid+'" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" class="pt-clear" fill="none"/><line x1="0" y1="0" x2="0" y2="8" class="pt-ac"/></pattern>');
+    }
+    return 'url(#'+pid+')';
+  };
+  o.svg=function(label){return '<svg viewBox="0 0 '+VW+' '+f(VH)+'" role="img" aria-label="'+esc(label||'Drawing')+'" xmlns="http://www.w3.org/2000/svg"><defs>'+defs.join('')+'</defs>'+out.join('')+'</svg>'};
+  return o;
+}
+function rng(seed){var a=seed>>>0;return function(){a=(a+0x6D2B79F5)>>>0;var t=a;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return((t^(t>>>14))>>>0)/4294967296}}
+
+/* fields */
+function defaultsOf(defs){var o={};defs.forEach(function(d){o[d.id]=d.type==='select'?d.v:d.v});return o}
+function loadState(pid,defs){
+  var s=defaultsOf(defs),sv=lsGet('proj_'+pid,null);
+  if(sv&&typeof sv==='object'){
+    defs.forEach(function(d){
+      if(!(d.id in sv))return;
+      if(d.type==='select'){if(d.options.some(function(o){return String(o[0])===String(sv[d.id])}))s[d.id]=String(sv[d.id])}
+      else{var v=+sv[d.id];if(isFinite(v))s[d.id]=Math.min(d.max,Math.max(d.min,v))}
+    });
+  }
+  defs.forEach(function(d){if(d.type==='select')s[d.id]=String(s[d.id])});
+  return s;
+}
+function fieldHTML(pid,d,val){
+  var id='f_'+pid+'_'+d.id,hint=d.hint?'<div class="hint">'+esc(d.hint)+'</div>':'';
+  if(d.type==='select'){
+    return '<div class="fld"><label for="'+id+'">'+esc(d.label)+'</label><select id="'+id+'" data-fld="'+d.id+'">'+d.options.map(function(o){return '<option value="'+esc(o[0])+'"'+(String(o[0])===String(val)?' selected':'')+'>'+esc(o[1])+'</option>'}).join('')+'</select>'+hint+'</div>';
+  }
+  return '<div class="fld"><label for="'+id+'">'+esc(d.label)+'</label><div class="frow"><input type="range" id="'+id+'_r" data-fld="'+d.id+'" data-kind="r" min="'+d.min+'" max="'+d.max+'" step="'+d.step+'" value="'+val+'" aria-label="'+esc(d.label)+' slider"><span class="num"><input type="number" inputmode="decimal" id="'+id+'" data-fld="'+d.id+'" data-kind="n" min="'+d.min+'" max="'+d.max+'" step="'+d.step+'" value="'+val+'"><span class="unit">'+esc(d.unit||'')+'</span></span></div>'+hint+'</div>';
+}
+function fieldsHTML(pid,defs,state){return defs.map(function(d){return fieldHTML(pid,d,state[d.id])}).join('')}
+function bindFields(root,pid,defs,state,onChange){
+  root.addEventListener('input',function(e){
+    var el=e.target,f=el.dataset&&el.dataset.fld;if(!f)return;
+    var d=defs.filter(function(x){return x.id===f})[0];if(!d)return;
+    if(d.type==='select')state[f]=String(el.value);
+    else{
+      var v=parseFloat(el.value);if(!isFinite(v))return;
+      v=Math.min(d.max,Math.max(d.min,v));state[f]=v;
+      var other=root.querySelector('#f_'+pid+'_'+f+(el.dataset.kind==='r'?'':'_r'));
+      if(other)other.value=v;
+      if(el.dataset.kind==='r'){var n=root.querySelector('#f_'+pid+'_'+f);if(n)n.value=v}
+    }
+    lsSet('proj_'+pid,state);onChange();
+  });
+  root.addEventListener('change',function(e){
+    var el=e.target;if(!el.dataset||el.dataset.kind!=='n')return;
+    var f=el.dataset.fld;if(f in state)el.value=state[f];
+  });
+}
+
+/* shared small renderers */
+function statHTML(s){return '<div class="stat"><div class="k">'+esc(s.k)+'</div><div class="v">'+esc(s.v)+'</div>'+(s.u?'<div class="u">'+esc(s.u)+'</div>':'')+'</div>'}
+var MK={ok:'OK',warn:'Check',bad:'Fix',info:'Note'};
+function checksHTML(cs){return '<ul class="checks">'+cs.map(function(c){return '<li><span class="mk '+c.lv+'">'+MK[c.lv]+'</span><span>'+esc(c.t)+'</span></li>'}).join('')+'</ul>'}
+function buyHTML(buy){return '<ul class="buy">'+buy.map(function(b){return '<li><span class="q">'+esc(b.qty)+'</span><span>'+esc(b.text)+'</span><span class="src">'+esc(b.src)+'</span></li>'}).join('')+'</ul>'}
+function cutsHTML(cuts){
+  return '<div class="tw"><table><thead><tr><th>Part</th><th class="m r">Qty</th><th class="m">Length × Width × Thick (mm)</th><th>Material</th><th>Note</th></tr></thead><tbody>'+cuts.map(function(c){return '<tr><td>'+esc(c.part)+'</td><td class="m r">'+c.qty+'</td><td class="m">'+dims(c.l,c.w,c.t)+'</td><td>'+esc(c.mat)+'</td><td>'+esc(c.note||'')+'</td></tr>'}).join('')+'</tbody></table></div>';
+}
+
+/* ================= PROJECTS ================= */
+var FORMATS=[['Mass-market paperback',178],['Trade paperback',216],['Hardback',245],['Large art book',300]];
+function sel(v,l){return [v,l]}
+
+/* ---- Bookshelf ---- */
+var BOOK_DEFS=[
+ {id:'cols',label:'Boxes across',unit:'',min:1,max:6,step:1,v:3},
+ {id:'rows',label:'Boxes high',unit:'',min:1,max:6,step:1,v:3},
+ {id:'W',label:'Box width',unit:'mm',min:250,max:1000,step:10,v:600},
+ {id:'H',label:'Box height',unit:'mm',min:200,max:600,step:10,v:330},
+ {id:'D',label:'Depth',unit:'mm',min:150,max:450,step:10,v:300,hint:'Includes the 6 mm back'},
+ {id:'shelves',label:'Extra shelves per box',unit:'',min:0,max:3,step:1,v:0},
+ {id:'t',type:'select',label:'Board thickness',options:[['18','18 mm'],['16','16 mm'],['12','12 mm']],v:'18'},
+ {id:'mat',type:'select',label:'Material',options:[['ply','Plywood sheets 2400 × 1200'],['pine','Laminated pine panels 1800 long']],v:'ply'},
+ {id:'crown',type:'select',label:'Crown moulding cap',options:[['yes','Yes'],['no','No']],v:'yes'}
+];
+function cBook(p){
+  var cols=+p.cols,rows=+p.rows,W=+p.W,H=+p.H,D=+p.D,sh=+p.shelves,t=+p.t,ply=p.mat==='ply',crown=p.crown==='yes';
+  var n=cols*rows,bt=6,d=D-bt,inner=W-2*t,mat=ply?'Plywood':'Laminated pine';
+  var cuts=[
+    {part:'Side',qty:2*n,l:H,w:d,t:t,mat:mat,note:'Grain runs along the length'},
+    {part:'Top / bottom',qty:2*n,l:inner,w:d,t:t,mat:mat,note:'Pocket holes on the hidden faces'}
+  ];
+  if(sh>0)cuts.push({part:'Shelf',qty:sh*n,l:inner,w:d-10,t:t,mat:mat,note:'Set back 10 mm'});
+  cuts.push({part:'Back',qty:n,l:W,w:H,t:bt,mat:'6 mm ply or MDF',note:'Glued and pinned'});
+  var levels=sh+1,levelH=(H-2*t-sh*t)/levels,capacity=n*levels*Math.max(0,Math.floor(inner/28));
+  var fits=FORMATS.filter(function(f){return f[1]+10<=levelH});
+  var checks=[];
+  var limit=(ply?800:700)*Math.pow(t/18,1.5);
+  if(inner>limit)checks.push({lv:'bad',t:'The '+fmm(inner)+' mm shelf span will sag under books. Keep it under '+fmm(limit)+' mm, add a shelf upright or use thicker board.'});
+  else if(inner>0.85*limit)checks.push({lv:'warn',t:'The '+fmm(inner)+' mm span is close to the sag limit of '+fmm(limit)+' mm. Books will bow it over time.'});
+  else checks.push({lv:'ok',t:'The '+fmm(inner)+' mm shelf span is well inside the sag limit of '+fmm(limit)+' mm.'});
+  if(rows*H>900)checks.push({lv:'warn',t:'Fit anti-tip brackets to the top row (books + a climbing cat). Total height is '+fmm(rows*H)+' mm.'});
+  if(d<220)checks.push({lv:'warn',t:'Inside depth of '+fmm(d)+' mm is too shallow for hardbacks.'});
+  if(fits.length)checks.push({lv:'ok',t:'Each level is '+fmm(levelH)+' mm tall inside. Fits: '+fits.map(function(f){return f[0].toLowerCase()+' ('+f[1]+' mm)'}).join(', ')+'.'});
+  else checks.push({lv:'bad',t:'Each level is only '+fmm(levelH)+' mm tall inside, so no standard book fits. Make the box taller or drop a shelf.'});
+  var plans=[],buy=[];
+  var pcs=[{len:H,qty:2*n,label:'Side'},{len:inner,qty:2*n,label:'Top/bot'},{len:inner,qty:sh*n,label:'Shelf'}];
+  var panelCount=0;
+  if(ply){
+    var bins=pack(pcs,2400),per=Math.max(1,Math.floor(1200/(d+3))),sheets=ce(bins.length/per);panelCount=sheets;
+    plans.push({title:t+' mm plywood strips, '+fmm(d)+' mm wide',stock:2400,bins:bins,caption:'Each sheet gives '+per+' strips 2400 long at '+fmm(d)+' mm. Ask Bunnings’ panel saw to rip them. You need '+bins.length+' strips, so buy '+sheets+' sheet'+(sheets===1?'':'s')+'.'});
+    buy.push({key:'panels',text:'Plywood sheet 2400 × 1200 × '+t+' mm (ripped to '+fmm(d)+' mm strips in store)',qty:String(sheets),src:'Bunnings'});
+  }else{
+    var pw=[300,400,450,600].filter(function(x){return x>=d})[0]||600;
+    var bins2=pack(pcs,1800);panelCount=bins2.length;
+    plans.push({title:'Laminated pine panels, '+pw+' wide × '+t+' thick',stock:1800,bins:bins2,caption:'Buy '+bins2.length+' panel'+(bins2.length===1?'':'s')+' 1800 long × '+pw+' wide. Cross-cut the parts along each panel, then trim to '+fmm(d)+' mm.'});
+    buy.push({key:'panels',text:'Laminated pine panel 1800 × '+pw+' × '+t+' mm',qty:String(bins2.length),src:'Timber merchant'});
+  }
+  var perBack=Math.max(1,Math.max(Math.floor(2400/(W+3))*Math.floor(1200/(H+3)),Math.floor(2400/(H+3))*Math.floor(1200/(W+3))));
+  var backSheets=ce(n/perBack);
+  buy.push({key:'backs',text:'6 mm ply or MDF sheet 2400 × 1200 for backs ('+perBack+' backs per sheet)',qty:String(backSheets),src:'Bunnings'});
+  var crownN=0;
+  if(crown){
+    var front=cols*W+80,side=D+40,cp;
+    if(front>2400){
+      checks.push({lv:'warn',t:'The crown front is '+fmm(front)+' mm, longer than 2400. It is split into two pieces with a scarf join over a box side.'});
+      var half=ce(front/2)+50;
+      cp=[{len:half,qty:2,label:'Front'},{len:side,qty:2,label:'Side'}];
+      cuts.push({part:'Crown front',qty:2,l:half,w:67,t:19,mat:'Crown moulding',note:'Scarf join, overlap 100 mm'});
+    }else{
+      cp=[{len:front,qty:1,label:'Front'},{len:side,qty:2,label:'Side'}];
+      cuts.push({part:'Crown front',qty:1,l:front,w:67,t:19,mat:'Crown moulding',note:'Mitre both ends'});
+    }
+    cuts.push({part:'Crown side',qty:2,l:side,w:67,t:19,mat:'Crown moulding',note:'Mitre front end'});
+    var cb=pack(cp,2400);crownN=cb.length;
+    plans.push({title:'Crown moulding',stock:2400,bins:cb,caption:'Buy '+cb.length+' length'+(cb.length===1?'':'s')+' of 2.4 m moulding. Profile sizes vary, so check the real width.'});
+  }
+  var area=0;cuts.forEach(function(c){if(c.part.indexOf('Crown')<0)area+=c.qty*c.l*c.w*2/1e6});
+  var litres=r1(area*3/14);
+  var tin=litres<=1?'1 L tin':litres<=4?'4 L tin':ce(litres/4)+' × 4 L tins';
+  var liner=n*levels*inner*d/1e6;
+  var screws=ce(4*(2*n+sh*n)/100)*100;
+  buy.push({key:'screws',text:'Pocket-hole screws, 32 mm (pack of 100)',qty:String(screws/100),src:'Bunnings'});
+  buy.push({key:'glue',text:'PVA wood glue, 500 ml',qty:'1',src:'Bunnings'});
+  buy.push({key:'pins',text:'Panel pins or brads, 25 mm',qty:'1 box',src:'Bunnings'});
+  buy.push({key:'poly',text:'Water-based polyurethane, '+tin+' ('+fm(litres)+' L needed for 3 coats)',qty:'1',src:'Bunnings'});
+  buy.push({key:'sand',text:'Sandpaper 120, 180 and 240 grit',qty:'1 set',src:'Bunnings'});
+  buy.push({key:'liner',text:'Acid-free shelf liner, '+fm(liner)+' m²',qty:fm(liner)+' m²',src:'Other'});
+  if(crown)buy.push({key:'crown',text:'Crown moulding, 2.4 m lengths',qty:String(crownN),src:'Bunnings'});
+  if(rows*H>900)buy.push({key:'brackets',text:'Anti-tip brackets',qty:String(2*cols),src:'Bunnings'});
+  var steps=[
+    'Get sheets ripped to '+fmm(d)+' mm at the store.',
+    'Crosscut parts to length with a clamped straight-edge or mitre saw. Label every part.',
+    'Drill two pocket holes at each end of the tops, bottoms and shelves, on the faces that will be hidden.',
+    'Glue and screw each box. Check it is square by measuring both diagonals (equal means square).',
+    'Glue and pin the back on, which locks the box square.',
+    'Sand 120 then 180 and soften the edges.',
+    'Apply 3 thin coats of water-based poly, sanding with 240 between coats. Wait 7 days to cure before loading books.',
+    'Mitre and fix the crown moulding to the top row with glue and 25 mm brads.',
+    'Stack the boxes, screw them together through the sides, fit anti-tip brackets and lay the shelf liner.'
+  ];
+  if(!crown)steps.splice(7,1);
+  var svg=drawBook({cols:cols,rows:rows,W:W,H:H,D:D,t:t,sh:sh,crown:crown,levelH:levelH,fits:fits});
+  var stats=[
+    {k:'Boxes',v:String(n),u:cols+' across, '+rows+' high'},
+    {k:'Overall',v:fmm(cols*W)+' × '+fmm(rows*H),u:'mm, W × H'},
+    {k:ply?'Ply sheets':'Pine panels',v:String(panelCount),u:ply?'2400 × 1200':'1800 long'},
+    {k:'Books held',v:'~'+fmm(capacity),u:'at 28 mm each'},
+    {k:'Poly needed',v:fm(litres)+' L',u:'3 coats'}
+  ];
+  return {stats:stats,checks:checks,cuts:cuts,plans:plans,buy:buy,steps:steps,svg:svg,d:d,inner:inner,levelH:levelH,capacity:capacity,litres:litres,area:area};
+}
+function drawBook(c){
+  var ch=c.crown?70:0,ox=40;
+  var S=Sheet(c.cols*c.W+80,c.rows*c.H+ch);
+  for(var ri=0;ri<c.rows;ri++)for(var ci=0;ci<c.cols;ci++){
+    var x=ox+ci*c.W,y=ri*c.H;
+    S.rect(x,y,c.W,c.H,'pc');
+    S.rect(x+c.t,y+c.t,c.W-2*c.t,c.H-2*c.t,'op');
+    for(var li=0;li<=c.sh;li++){
+      var y0=y+c.t+li*(c.levelH+c.t);
+      if(li>0)S.rect(x+c.t,y0-c.t,c.W-2*c.t,c.t,'pc');
+      if(!c.fits.length)continue;
+      var r=rng(ci*131+ri*17+li*5+3),bx=x+c.t+4,lim=x+c.W-c.t-4;
+      while(bx+22<lim){
+        var w=22+Math.floor(r()*15),fh=c.fits[Math.floor(r()*c.fits.length)][1]-Math.floor(r()*10);
+        if(bx+w>lim)break;
+        S.rect(bx,y0,w,Math.min(fh,c.levelH-4),'bk'+Math.floor(r()*4));
+        bx+=w+1;
+      }
+    }
+  }
+  if(c.crown){var top=c.rows*c.H,tw=c.cols*c.W;S.poly([[ox-10,top],[ox+tw+10,top],[ox+tw+40,top+70],[ox-40,top+70]],'pa')}
+  S.dimH(ox,ox+c.cols*c.W,0,fmm(c.cols*c.W),30);
+  S.dimV(0,c.rows*c.H,ox+c.cols*c.W,fmm(c.rows*c.H),36);
+  S.dimH(ox,ox+c.W,c.rows*c.H+ch,fmm(c.W),-22);
+  return S.svg('Front elevation of the bookshelf boxes');
+}
+
+/* ---- Cat perch ---- */
+var PERCH_DEFS=[
+ {id:'postH',label:'Overall height',unit:'mm',min:800,max:2100,step:10,v:1500},
+ {id:'post',type:'select',label:'Post timber',options:[['90','90 × 90 pine'],['70','70 × 70 pine']],v:'90'},
+ {id:'base',label:'Base width',unit:'mm',min:400,max:900,step:10,v:600},
+ {id:'tiers',label:'Platforms',unit:'',min:2,max:5,step:1,v:3},
+ {id:'platW',label:'Platform width',unit:'mm',min:300,max:600,step:10,v:450},
+ {id:'platD',label:'Platform depth',unit:'mm',min:250,max:550,step:10,v:380},
+ {id:'wrap',label:'Sisal wrap height',unit:'mm',min:200,max:1200,step:50,v:600},
+ {id:'rope',type:'select',label:'Sisal rope diameter',options:[['10','10 mm'],['12','12 mm'],['8','8 mm']],v:'10'},
+ {id:'wall',type:'select',label:'Stability',options:[['yes','Fixed to a wall stud (recommended)'],['no','Freestanding']],v:'yes'}
+];
+function cPerch(p){
+  var postH=+p.postH,post=+p.post,base=+p.base,tiers=+p.tiers,platW=+p.platW,platD=+p.platD,wrap=+p.wrap,rope=+p.rope,wall=p.wall==='yes';
+  var postLen=postH-36,low=Math.max(350,postH*0.3),hs=[],i;
+  for(i=0;i<tiers;i++)hs.push(low+i*(postH-low)/(tiers-1));
+  var braces=2*(tiers-1);
+  var carpet=tiers*(platW+120)*(platD+120)/1e6+Math.pow(base+120,2)/1e6;
+  var ropeM=(wrap/rope)*(4*post+Math.PI*rope)/1000*1.05;
+  var checks=[];
+  var reach=post/2+platW,ratio=postH/base;
+  if(!wall){
+    if(ratio>2.2||reach>base/2+100)checks.push({lv:'bad',t:'Freestanding, this is likely to tip when a cat jumps off (height to base ratio '+r1(ratio)+', platform reach '+fmm(reach)+' mm against a '+fmm(base/2+100)+' mm limit). Fix it to a wall stud or widen the base.'});
+    else checks.push({lv:'ok',t:'Freestanding, the base is wide enough for the height and reach.'});
+  }else checks.push({lv:'ok',t:'Fixed to a wall stud at the top, so it cannot tip.'});
+  checks.push({lv:'ok',t:'Round the platform corners (30 mm radius) so nothing catches a hip or a claw.'});
+  checks.push({lv:'info',t:'Lower platforms alternate left and right, each carried on two 45 degree braces. The top platform sits centred on the post.'});
+  var cuts=[
+    {part:'Post',qty:1,l:postLen,w:post,t:post,mat:post+' × '+post+' DAR pine',note:'Square-cut both ends'},
+    {part:'Base layer',qty:2,l:base,w:base,t:18,mat:'18 mm plywood',note:'Glue and screw together (36 mm total)'},
+    {part:'Platform',qty:tiers,l:platW,w:platD,t:18,mat:'18 mm plywood',note:'Round corners 30 mm radius'}
+  ];
+  if(braces)cuts.push({part:'Brace',qty:braces,l:250,w:70,t:35,mat:'70 × 35 pine',note:'45 degree ends'});
+  var bs=bestStock([{len:postLen,qty:1,label:'Post'}],[2400,3000,3600]);
+  var bb=braces?bestStock([{len:250,qty:braces,label:'Brace'}],[1200,1800,2400]):null;
+  var plans=[{title:'Post',stock:bs.stock,bins:bs.bins,caption:'Buy '+bs.bins.length+' × '+(bs.stock/1000)+' m length of '+post+' × '+post+' pine.'}];
+  if(bb)plans.push({title:'Braces',stock:bb.stock,bins:bb.bins,caption:'Buy '+bb.bins.length+' × '+(bb.stock/1000)+' m length'+(bb.bins.length===1?'':'s')+' of 70 × 35 pine.'});
+  var ply=(2*base*base+tiers*platW*platD)/1e6*1.25/2.88;
+  var plyQ=ply<=0.5?'1/2 sheet':ce(ply)+' sheet'+(ce(ply)===1?'':'s');
+  var buy=[
+    {key:'post',text:post+' × '+post+' DAR pine, '+(bs.stock/1000)+' m length',qty:String(bs.bins.length),src:'Timber merchant'},
+    bb?{key:'brace',text:'70 × 35 pine, '+(bb.stock/1000)+' m length (braces)',qty:String(bb.bins.length),src:'Bunnings'}:null,
+    {key:'ply',text:'18 mm plywood, 2400 × 1200 (platforms and base)',qty:plyQ,src:'Bunnings'},
+    {key:'carpet',text:'Carpet offcut, about '+fm(carpet*1.1)+' m²',qty:fm(carpet*1.1)+' m²',src:'Flooring company'},
+    {key:'sisal',text:'Sisal rope, '+rope+' mm',qty:fm(ropeM)+' m',src:'Bunnings'},
+    {key:'coach',text:'Coach screws, 100 mm',qty:'4',src:'Bunnings'},
+    {key:'screws',text:'Wood screws, 65 mm (box)',qty:'1',src:'Bunnings'},
+    {key:'staples',text:'Carpet staples and spray adhesive',qty:'1 set',src:'Bunnings'}
+  ];
+  buy=buy.filter(Boolean);
+  if(wall)buy.push({key:'bracket',text:'Heavy L-bracket plus 2 stud screws',qty:'1',src:'Bunnings'});
+  var steps=[
+    'Laminate the two base layers with glue and screws.',
+    'Fix the post through the base from underneath with 4 coach screws and glue.',
+    'Cut the platforms and round the corners.',
+    'Carpet each platform before fixing it, wrapping the edges and stapling underneath.',
+    'Fix the platforms and braces with screws into the post.',
+    'Wrap the sisal from the bottom up, stapling the start and gluing every few turns, pushing the turns tight.',
+    'Anchor the top to a wall stud.'
+  ];
+  if(!wall)steps.pop();
+  var svg=drawPerch({postH:postH,post:post,base:base,tiers:tiers,platW:platW,platD:platD,wrap:wrap,wall:wall,hs:hs});
+  var stats=[
+    {k:'Post length',v:fmm(postLen),u:'mm'},
+    {k:'Platforms',v:String(tiers),u:'lowest at '+fmm(hs[0])+' mm'},
+    {k:'Carpet',v:fm(carpet*1.1),u:'m² with 10% spare'},
+    {k:'Sisal',v:fm(ropeM),u:'m of '+rope+' mm rope'}
+  ];
+  return {stats:stats,checks:checks,cuts:cuts,plans:plans,buy:buy,steps:steps,svg:svg,carpet:carpet,ropeM:ropeM,hs:hs};
+}
+function drawPerch(c){
+  var post=c.post,pc=c.base/2,tiers=c.tiers,reachL=pc-post/2-c.platW,reachR=pc+post/2+c.platW;
+  var xmin=Math.min(0,reachL,pc-c.platW/2),xmax=Math.max(c.base,reachR);
+  var sh=c.wall?100:0,off=-xmin+sh;
+  var S=Sheet(xmax-xmin+sh,c.postH);
+  var px0=pc-post/2+off,px1=pc+post/2+off;
+  if(c.wall){
+    S.rect(0,0,60,c.postH+40,'pf',S.pat('hatch'));
+    S.line(60,c.postH-150,px0,c.postH-150,'br');
+    S.rect(px0-30,c.postH-190,30,80,'pa');
+  }
+  S.rect(off,0,c.base,36,'pa');
+  S.line(off,18,off+c.base,18,'ln');
+  S.rect(px0,36,post,c.postH-36,'pc');
+  S.rect(px0,36,post,Math.min(c.wrap,c.postH-36),'pf',S.pat('rope'));
+  for(var i=0;i<tiers;i++){
+    var h=c.hs[i],top=i===tiers-1,x0,x1,dir=0;
+    if(top){x0=pc-c.platW/2+off;x1=pc+c.platW/2+off}
+    else{dir=((tiers-1-i)%2===1)?-1:1;if(dir<0){x0=px0-c.platW;x1=px0}else{x0=px1;x1=px1+c.platW}}
+    S.rect(x0,h-18,x1-x0,18,'pa');
+    if(!top){
+      var fx=dir<0?px0:px1;
+      S.line(fx,h-18-177,fx+dir*177,h-18,'br');
+    }
+  }
+  var tl=pc-c.platW/2+off,tr=pc+c.platW/2+off;
+  S.dimV(0,c.postH,xmax+off,fmm(c.postH),30);
+  S.dimH(off,off+c.base,0,fmm(c.base),30);
+  S.dimH(tl,tr,c.postH,fmm(c.platW),-22);
+  return S.svg('Side elevation of the cat perch');
+}
+
+/* ---- Catio pod ---- */
+var CATIO_DEFS=[
+ {id:'W',label:'Width along the wall',unit:'mm',min:1000,max:3600,step:50,v:1800},
+ {id:'D',label:'Depth out from the wall',unit:'mm',min:600,max:2000,step:50,v:1000},
+ {id:'H',label:'Height at the wall',unit:'mm',min:1500,max:2400,step:50,v:2100},
+ {id:'pitch',label:'Roof pitch',unit:'deg',min:3,max:15,step:1,v:5,hint:'Polycarbonate needs at least 5°'},
+ {id:'sec',type:'select',label:'Framing timber',options:[['70','70 × 35 H3 treated pine'],['90','90 × 45 H3 treated pine']],v:'70'},
+ {id:'spacing',label:'Max post spacing',unit:'mm',min:400,max:900,step:50,v:600},
+ {id:'rollW',type:'select',label:'Mesh roll width',options:[['900','900 mm'],['1200','1200 mm']],v:'900'},
+ {id:'rollL',type:'select',label:'Mesh roll length',options:[['5','5 m roll'],['10','10 m roll'],['25','25 m roll']],v:'10'},
+ {id:'cover',label:'Roof sheet cover width',unit:'mm',min:600,max:900,step:10,v:760,hint:'Check the product'}
+];
+function cCatio(p){
+  var W=+p.W,D=+p.D,H=+p.H,pitch=+p.pitch,sec=+p.sec,th=sec===70?35:45,sp=+p.spacing,rollW=+p.rollW,rollL=+p.rollL,cover=+p.cover;
+  var rad=pitch*Math.PI/180,tn=Math.tan(rad),cs=Math.cos(rad);
+  var Hf=H-D*tn,nF=Math.max(2,ce(W/sp)+1),ns=Math.max(0,ce(D/sp)-1);
+  var rafter=D/cs,purlins=Math.max(0,ce(rafter/900)-1);
+  var mat=sec+' × '+th+' H3 pine';
+  var cuts=[
+    {part:'Front post',qty:nF,l:Hf-2*th,w:sec,t:th,mat:mat,note:'Between the plates'},
+    {part:'Wall post',qty:2,l:H-2*th,w:sec,t:th,mat:mat,note:'Fixed to the wall'}
+  ];
+  var pcs=[{len:Hf-2*th,qty:nF,label:'Front post'},{len:H-2*th,qty:2,label:'Wall post'}];
+  var k,xk,lk;
+  for(k=1;k<=ns;k++){
+    xk=k*D/(ns+1);lk=H-xk*tn-2*th;
+    cuts.push({part:'Side post '+k,qty:2,l:lk,w:sec,t:th,mat:mat,note:'One each side'});
+    pcs.push({len:lk,qty:2,label:'Side post'});
+  }
+  cuts.push({part:'Bottom plate, front',qty:1,l:W,w:sec,t:th,mat:mat,note:''});
+  cuts.push({part:'Bottom plate, side',qty:2,l:D-th,w:sec,t:th,mat:mat,note:''});
+  cuts.push({part:'Top plate, front',qty:1,l:W,w:sec,t:th,mat:mat,note:''});
+  cuts.push({part:'Wall ledger',qty:1,l:W,w:sec,t:th,mat:mat,note:'Bolted to the wall'});
+  cuts.push({part:'Rafter',qty:2,l:rafter,w:sec,t:th,mat:mat,note:'Cut the ends to '+pitch+' degrees'});
+  pcs.push({len:W,qty:1,label:'Bottom front'},{len:D-th,qty:2,label:'Bottom side'},{len:W,qty:1,label:'Top front'},{len:W,qty:1,label:'Ledger'},{len:rafter,qty:2,label:'Rafter'});
+  if(purlins){cuts.push({part:'Purlin',qty:purlins,l:W,w:sec,t:th,mat:mat,note:'Across the rafters'});pcs.push({len:W,qty:purlins,label:'Purlin'})}
+  var bs=bestStock(pcs,[2400,3000,3600]);
+  var plans=[{title:'Treated pine framing, '+sec+' × '+th,stock:bs.stock,bins:bs.bins,caption:'Buy '+bs.bins.length+' × '+(bs.stock/1000)+' m lengths. Lengths of 4.8 m and over will not fit in a car, so these stay at 3.6 m or less.'}];
+  var nSheets=ce((W+200)/cover),rawLen=rafter+100,sLen=[1800,2400,3000,3600,4200].filter(function(x){return x>=rawLen})[0]||4200;
+  var fStrips=ce(W/rollW),sStrips=2*ce(D/rollW);
+  var meshM=(fStrips*(Hf+100)+sStrips*(H+100))/1000,rolls=ce(meshM/rollL);
+  var area=W*D/1e6;
+  var wallFix=ce(W/600)+1+2*ce(H/600);
+  var screws=nSheets*(purlins+2)*5;
+  var posts=nF+2+2*ns;
+  var checks=[];
+  if(area>10||H>2400)checks.push({lv:'warn',t:'Check with City of Ballarat whether a building permit is needed.'});
+  else checks.push({lv:'warn',t:'Small structures are often exempt, but attached ones can differ. Check with council.'});
+  checks.push({lv:'warn',t:'If renting, get written OK before fixing to the wall.'});
+  if(pitch<5)checks.push({lv:'warn',t:'Pitch is under 5 degrees. Polycarbonate sheet needs at least 5 so water runs off.'});
+  checks.push({lv:'info',t:'No gap a cat’s head fits through (over about 50 mm). The 25 mm mesh is fine; watch where mesh meets the wall and the corners.'});
+  checks.push({lv:'info',t:'On soil, add a 300 mm mesh skirt (about '+fm((W+2*D)/1000)+' m of extra strip) so nothing digs in.'});
+  checks.push({lv:'ok',t:'Use H3 treated pine, not old CCA timber.'});
+  var cat=sLen;
+  var buy=[
+    {key:'pine',text:sec+' × '+th+' H3 treated pine, '+(bs.stock/1000)+' m lengths',qty:String(bs.bins.length),src:'Bunnings'},
+    {key:'mesh',text:'Welded mesh 25 × 25 × 1.2 mm galvanised, '+rollW+' mm × '+rollL+' m roll ('+fm(meshM)+' m needed)',qty:String(rolls),src:'Rural supply'},
+    {key:'roof',text:'Roof sheet, '+fmm(cat)+' mm long (Laserlite or Colorbond), '+cover+' mm cover',qty:String(nSheets),src:'Bunnings'},
+    {key:'rscrews',text:'Roofing screws with seals',qty:String(screws),src:'Bunnings'},
+    {key:'staples',text:'Galvanised staples or screw-on cover battens',qty:'1 box',src:'Bunnings'},
+    {key:'screws',text:'Treated-pine screws, 75 mm (box)',qty:'1',src:'Bunnings'},
+    {key:'brackets',text:'Galvanised angle brackets',qty:String(posts*2),src:'Bunnings'},
+    {key:'anchors',text:'Wall anchors or bolts for the ledger and wall posts',qty:String(wallFix),src:'Bunnings'},
+    {key:'stain',text:'Exterior stain or paint',qty:'1 L',src:'Bunnings'},
+    {key:'door',text:'Small weatherproof cat door',qty:'1',src:'Bunnings'},
+    {key:'curtain',text:'Clear PVC strip curtain',qty:'1',src:'Bunnings'}
+  ];
+  var steps=[
+    'Check council, the landlord and the wall material.',
+    'Build the front and side frames flat on the ground.',
+    'Stand them up and fix the ledger to the wall.',
+    'Join the frames, then add rafters and purlins.',
+    'Staple the mesh tight, overlapping strips by one square, and cover the edges with battens.',
+    'Pre-drill oversized holes and screw the roof sheets through the crowns.',
+    'Fit the cat door and the strip curtain, and link the perch inside.'
+  ];
+  var svg=drawCatio({W:W,D:D,H:H,Hf:Hf,th:th,sec:sec,nF:nF,ns:ns,tn:tn,pitch:pitch});
+  var stats=[
+    {k:'Floor area',v:fm(area),u:'m²'},
+    {k:'Front height',v:fmm(Hf),u:'mm at the low edge'},
+    {k:'Pine lengths',v:String(bs.bins.length),u:(bs.stock/1000)+' m each'},
+    {k:'Roof sheets',v:String(nSheets),u:fmm(cat)+' mm long'},
+    {k:'Mesh',v:fm(meshM),u:'m, '+rolls+' roll'+(rolls===1?'':'s')}
+  ];
+  return {stats:stats,checks:checks,cuts:cuts,plans:plans,buy:buy,steps:steps,svg:svg,Hf:Hf,area:area,meshM:meshM,nSheets:nSheets};
+}
+function drawCatio(c){
+  var gap=400,x0=c.W+gap+80,S=Sheet(c.W+gap+80+c.D+100,c.H+30);
+  var th=c.th,i;
+  /* front elevation */
+  S.rect(0,th,c.W,c.Hf-2*th,'pf',S.pat('mesh'));
+  for(i=0;i<c.nF;i++){var px=i*(c.W-th)/(c.nF-1);S.rect(px,0,th,c.Hf,'pc')}
+  S.rect(0,0,c.W,th,'pc');S.rect(0,c.Hf-th,c.W,th,'pc');
+  S.rect(-100,c.Hf,c.W+200,25,'pa');
+  /* wall + side elevation */
+  S.rect(x0-80,0,80,c.H+30,'pf',S.pat('hatch'));
+  S.poly([[x0,th],[x0+c.D,th],[x0+c.D,c.Hf-th],[x0,c.H-th]],'pf',S.pat('mesh'));
+  S.rect(x0,0,th,c.H,'pc');
+  S.rect(x0+c.D-th,0,th,c.Hf,'pc');
+  for(i=1;i<=c.ns;i++){var xk=i*c.D/(c.ns+1);S.rect(x0+xk-th/2,0,th,c.H-xk*c.tn,'pc')}
+  S.rect(x0,0,c.D,th,'pc');
+  S.poly([[x0,c.H],[x0+c.D+100,c.Hf-100*c.tn],[x0+c.D+100,c.Hf-100*c.tn+25],[x0,c.H+25]],'pa');
+  S.text(c.W/2,c.H+60,'Front',null,'middle');
+  S.text(x0+c.D/2,c.H+60,'Side (house wall on the left)',null,'middle');
+  S.dimH(0,c.W,0,'W '+fmm(c.W),30);
+  S.dimH(x0,x0+c.D,0,'D '+fmm(c.D),30);
+  S.dimV(0,c.H,0,'H '+fmm(c.H),-30);
+  S.dimV(0,c.Hf,c.W+100,'Hf '+fmm(c.Hf),30);
+  return S.svg('Front and side elevations of the catio pod');
+}
+
+/* ---- Display cabinet ---- */
+var CAB_DEFS=[
+ {id:'oL',label:'Object length',unit:'mm',min:100,max:1500,step:10,v:840},
+ {id:'oW',label:'Object depth',unit:'mm',min:100,max:900,step:10,v:560},
+ {id:'oH',label:'Object height',unit:'mm',min:50,max:800,step:10,v:210},
+ {id:'stand',label:'Stand height',unit:'mm',min:0,max:400,step:10,v:120},
+ {id:'clear',label:'Clearance each side',unit:'mm',min:20,max:150,step:5,v:60},
+ {id:'t',type:'select',label:'Board thickness',options:[['19','19 mm'],['25','25 mm']],v:'19'},
+ {id:'wood',type:'select',label:'Timber',options:[['ash','Victorian ash'],['oak','American oak'],['spotted','Spotted gum']],v:'ash'},
+ {id:'glassSides',type:'select',label:'Cabinet ends',options:[['1','Glass ends'],['0','Timber ends']],v:'1'},
+ {id:'led',type:'select',label:'LED tape power',options:[['4.8','4.8 W/m'],['9.6','9.6 W/m'],['14.4','14.4 W/m']],v:'4.8'}
+];
+var WOODS={ash:'Victorian ash',oak:'American oak',spotted:'Spotted gum'};
+function cCab(p){
+  var oL=+p.oL,oW=+p.oW,oH=+p.oH,stand=+p.stand,c=+p.clear,t=+p.t,gs=p.glassSides==='1',ledW=+p.led;
+  var wood=WOODS[p.wood]||'Hardwood';
+  var Wi=oL+2*c,Di=oW+2*c,Hi=oH+stand+c+40,We=Wi+2*t,De=Di+6;
+  var doors=We>700?2:1,doorW=(We-(doors+1)*2)/doors,doorH=Hi+2*t-4;
+  var cuts=[
+    {part:'Top and bottom',qty:2,l:We,w:De,t:t,mat:wood,note:'Rebate the back edge'}
+  ];
+  var frames=[];
+  if(gs){
+    cuts.push({part:'End stile',qty:4,l:Hi,w:42,t:19,mat:wood+' DAR',note:'Two per end frame'});
+    cuts.push({part:'End rail',qty:4,l:De-84,w:42,t:19,mat:wood+' DAR',note:'Two per end frame'});
+    frames.push({len:Hi,qty:4,label:'End stile'},{len:De-84,qty:4,label:'End rail'});
+  }else cuts.push({part:'Side',qty:2,l:Hi,w:De,t:t,mat:wood,note:'Rebate the back edge'});
+  cuts.push({part:'Back',qty:1,l:Wi+20,w:Hi+20,t:6,mat:'6 mm ply',note:'Sits in the rebate'});
+  cuts.push({part:'Door stile',qty:2*doors,l:doorH,w:42,t:19,mat:wood+' DAR',note:'Rebate 8 × 10 for glass'});
+  cuts.push({part:'Door rail',qty:2*doors,l:doorW-84,w:42,t:19,mat:wood+' DAR',note:'Rebate 8 × 10 for glass'});
+  frames.push({len:doorH,qty:2*doors,label:'Door stile'},{len:doorW-84,qty:2*doors,label:'Door rail'});
+  var gw=doorW-84+16-2,gh=doorH-84+16-2;
+  cuts.push({part:'Door glass',qty:doors,l:gw,w:gh,t:4,mat:'4 mm toughened glass',note:'Order after the doors are built'});
+  var ew=De-84+14,eh=Hi-84+14;
+  if(gs)cuts.push({part:'End glass',qty:2,l:ew,w:eh,t:4,mat:'4 mm toughened glass',note:'Order after the frames are built'});
+  var runM=(Wi+2*Di)/1000,tapeM=ce(runM*10)/10,chan=ce(Wi/1000)+2*ce(Di/1000);
+  var needW=tapeM*ledW*1.25,driver=[12,24,36,60,100].filter(function(x){return x>=needW})[0]||100;
+  var hinges=doors*(doorH>900?3:2),felt=doors*2*(doorW+doorH)/1000;
+  var bs=bestStock(frames,[1800,2100,2400,2700]);
+  var plans=[{title:'Frame stock, 42 × 19 DAR '+wood,stock:bs.stock,bins:bs.bins,caption:'Buy '+bs.bins.length+' × '+(bs.stock/1000)+' m lengths of 42 × 19 dressed timber.'}];
+  var boardArea=(2*We*De+(gs?0:2*Hi*De))/1e6*1.3;
+  var checks=[];
+  if(De>600)checks.push({lv:'warn',t:'Panels '+fmm(De)+' mm deep need edge-gluing boards, or a veneered ash plywood top with solid edging. Veneered ply is easier and will not move.'});
+  if(p.wood==='spotted')checks.push({lv:'warn',t:'Spotted gum is very hard and oily, which is tough on a first hardwood project. Victorian ash is easier to work.'});
+  checks.push({lv:'ok',t:'Order the glass after the doors are built: measure the finished rebate openings.'});
+  checks.push({lv:'ok',t:'Use 2700–3000 K, CRI 90+ tape so colours look true.'});
+  checks.push({lv:'info',t:'Inside the cabinet there is '+fmm(Wi)+' × '+fmm(Di)+' × '+fmm(Hi)+' mm (W × D × H) for a '+fmm(oL)+' × '+fmm(oW)+' × '+fmm(oH)+' mm piece on a '+fmm(stand)+' mm stand.'});
+  var glassTxt=function(w,h){return fmm(w)+' × '+fmm(h)+' mm'};
+  var buy=[
+    {key:'boards',text:wood+' boards or panels, '+t+' mm, about '+fm(boardArea)+' m² (top, bottom'+(gs?'':', sides')+')',qty:fm(boardArea)+' m²',src:'Timber merchant'},
+    {key:'back',text:'6 mm ply for the back, '+fmm(Wi+20)+' × '+fmm(Hi+20)+' mm',qty:'1',src:'Bunnings'},
+    {key:'frame',text:'42 × 19 DAR '+wood+', '+(bs.stock/1000)+' m lengths',qty:String(bs.bins.length),src:'Timber merchant'},
+    {key:'glassd',text:'Toughened glass 4 mm, door pane '+glassTxt(gw,gh),qty:String(doors),src:'Glazier'}
+  ];
+  if(gs)buy.push({key:'glasse',text:'Toughened glass 4 mm, end pane '+glassTxt(ew,eh),qty:'2',src:'Glazier'});
+  buy.push(
+    {key:'led',text:'Warm-white LED tape, '+p.led+' W/m',qty:fm(tapeM)+' m',src:'Other'},
+    {key:'channel',text:'Aluminium channel with diffuser, 1 m lengths',qty:String(chan),src:'Other'},
+    {key:'driver',text:'12 V LED driver, '+driver+' W',qty:'1',src:'Other'},
+    {key:'hinges',text:'Brass butt hinges',qty:String(hinges),src:'Bunnings'},
+    {key:'catches',text:'Magnetic catches',qty:String(doors),src:'Bunnings'},
+    {key:'knobs',text:'Door knobs',qty:String(doors),src:'Bunnings'},
+    {key:'felt',text:'Felt dust seal',qty:fm(felt)+' m',src:'Bunnings'},
+    {key:'finish',text:'Hardwax oil or water-based poly',qty:'1',src:'Bunnings'}
+  );
+  var steps=[
+    'Buy dressed (DAR) timber and let it acclimatise indoors for a week.',
+    'Cut the carcass parts and rout the rebates for the back (a first router job).',
+    'Assemble the carcass with glue and screws or dowels. Check the diagonals.',
+    'Build the door frames with half-laps or pocket screws on the inside face.',
+    'Rout an 8 × 10 mm glass rebate into each frame.',
+    'Measure the finished openings and order the glass.',
+    'Finish, then fit the LED channel to the top front and run the wire out a hole in the back.',
+    'Fit the glass with beads or clear silicone dots, then hang the doors.'
+  ];
+  var svg=drawCab({We:We,Wi:Wi,Hi:Hi,t:t,oL:oL,oH:oH,stand:stand,doors:doors,doorW:doorW,doorH:doorH});
+  var stats=[
+    {k:'Outside',v:fmm(We)+' × '+fmm(Hi+2*t),u:'mm, W × H, '+fmm(De)+' deep'},
+    {k:'Inside',v:fmm(Wi)+' × '+fmm(Hi),u:'mm, '+fmm(Di)+' deep'},
+    {k:'Doors',v:String(doors),u:fmm(doorW)+' × '+fmm(doorH)+' each'},
+    {k:'LED tape',v:fm(tapeM),u:'m, driver '+driver+' W'},
+    {k:'Frame stock',v:String(bs.bins.length),u:'× '+(bs.stock/1000)+' m'}
+  ];
+  return {stats:stats,checks:checks,cuts:cuts,plans:plans,buy:buy,steps:steps,svg:svg,driver:driver,tapeM:tapeM};
+}
+function drawCab(c){
+  var Ht=c.Hi+2*c.t,S=Sheet(c.We,Ht),t=c.t,i;
+  S.rect(0,0,c.We,Ht,'pc');
+  S.rect(t,t,c.Wi,c.Hi,'op');
+  S.rect(c.We/2-c.oL*0.35,t,c.oL*0.7,c.stand,'ob');
+  S.ellipse(c.We/2,t+c.stand+c.oH/2,c.oL/2,c.oH/2,'ob');
+  S.line(t+20,t+c.Hi-24,t+c.Wi-20,t+c.Hi-24,'glow');
+  S.line(t+20,t+c.Hi-24,t+c.Wi-20,t+c.Hi-24,'led');
+  var gl=S.pat('glass');
+  for(i=0;i<c.doors;i++){
+    var dx=2+i*(c.doorW+2),dy=2;
+    S.rect(dx,dy,42,c.doorH,'pc');S.rect(dx+c.doorW-42,dy,42,c.doorH,'pc');
+    S.rect(dx+42,dy,c.doorW-84,42,'pc');S.rect(dx+42,dy+c.doorH-42,c.doorW-84,42,'pc');
+    S.rect(dx+42,dy+42,c.doorW-84,c.doorH-84,'pf',gl);
+  }
+  S.dimH(0,c.We,0,fmm(c.We),30);
+  S.dimV(0,Ht,c.We,fmm(Ht),30);
+  S.dimH(t,t+c.Wi,Ht,'inside '+fmm(c.Wi),-22);
+  return S.svg('Front elevation of the display cabinet');
+}
+
+/* ---- Garden data ---- */
+var PLANTS=[
+ {id:'correa',name:'Correa',bot:'Correa reflexa / ‘Dusky Bells’',row:'back',height:'1–1.5 m',wid:1.5,sp:1.2,frost:'Hardy to about −7°C',sun:'Sun to part shade',flowers:'Red-pink bells, autumn–winter',care:'Light tip-prune after flowering',note:'Correa reflexa grows wild around Ballarat; winter flowers feed honeyeaters.',warn:false},
+ {id:'grevillea',name:'Grevillea',bot:'Grevillea ‘Canberra Gem’',row:'back',height:'1.5–2 m',wid:2,sp:1.5,frost:'Very frost hardy',sun:'Full sun',flowers:'Pink spider flowers, winter–spring',care:'Trim lightly after spring flowering; prickly, wear gloves',note:'Bred for Canberra frosts. If a nursery has ‘Eleanor’, ask how it handles Ballarat frost before swapping.',warn:false},
+ {id:'westringia',name:'Native rosemary',bot:'Westringia fruticosa, compact form',row:'back',height:'0.8–1.2 m',wid:1.0,sp:0.9,frost:'Handles moderate frost (to about −5°C)',sun:'Full sun',flowers:'White-mauve, most of the year',care:'Shear lightly once a year if wanted',note:'The closest swap for lavender: same grey look, no woody die-back.',warn:true},
+ {id:'lomandra',name:'Lomandra',bot:'Lomandra longifolia ‘Tanika’',row:'mid',height:'0.5–0.7 m',wid:0.7,sp:0.7,frost:'Very hardy',sun:'Sun or shade',flowers:'Insignificant',care:'None; comb out dead leaves in late winter',note:'Same look as the ornamental grasses for a fraction of the work.',warn:false},
+ {id:'dianella',name:'Flax lily',bot:'Dianella revoluta',row:'mid',height:'0.4–0.6 m',wid:0.5,sp:0.5,frost:'Very hardy',sun:'Sun to part shade',flowers:'Blue flowers, purple berries',care:'None',note:'D. revoluta is the local species; D. caerulea also works.',warn:false},
+ {id:'chryso',name:'Common everlasting',bot:'Chrysocephalum apiculatum',row:'front',height:'0.2–0.3 m',wid:0.8,sp:0.6,frost:'Very hardy; local to Ballarat grasslands',sun:'Full sun',flowers:'Yellow buttons, spring–autumn',care:'Shear by half in late winter',note:'A tougher front-row pick than fan flower for Ballarat frosts.',warn:false},
+ {id:'viola',name:'Native violet',bot:'Viola hederacea',row:'front',height:'0.1 m',wid:0.4,sp:0.3,frost:'Hardy',sun:'Part shade to shade',flowers:'Purple-white, spring–summer',care:'None; likes some moisture',note:'Best under shrubs and near the big tree, not in full sun on the driveway edge.',warn:false},
+ {id:'scaevola',name:'Fan flower',bot:'Scaevola aemula',row:'front',height:'0.2 m',wid:0.8,sp:0.6,frost:'Light frosts only',sun:'Full sun',flowers:'Purple fans, most of the year',care:'Tip-prune in spring',note:'Ballarat frosts can knock it back; use a sheltered spot or choose common everlasting.',warn:true}
+];
+var PL={};PLANTS.forEach(function(p){PL[p.id]=p});
+function plOpts(row){return PLANTS.filter(function(p){return p.row===row}).map(function(p){return [p.id,p.name]})}
+var BED_DEFS=[
+ {id:'L',label:'Bed length',unit:'m',min:2,max:40,step:0.5,v:12},
+ {id:'Wd',label:'Bed width',unit:'m',min:0.6,max:3,step:0.1,v:1.2},
+ {id:'depth',label:'Mulch depth',unit:'mm',min:50,max:100,step:5,v:75},
+ {id:'back',type:'select',label:'Back row plant',options:plOpts('back'),v:'correa'},
+ {id:'mid',type:'select',label:'Middle row plant',options:plOpts('mid'),v:'lomandra'},
+ {id:'front',type:'select',label:'Front row plant',options:plOpts('front'),v:'chryso'},
+ {id:'pot',type:'select',label:'Plant size',options:[['tube','Tubestock (recommended)'],['pot','140 mm pot']],v:'tube'}
+];
+var BED_PRICE_DEFS=[
+ {id:'pTube',label:'Tubestock, each',unit:'$',min:1,max:20,step:0.5,v:5},
+ {id:'pPot',label:'140 mm pot, each',unit:'$',min:5,max:50,step:1,v:16},
+ {id:'mulchM3',label:'Bulk mulch per m³',unit:'$',min:20,max:200,step:5,v:75},
+ {id:'deliv',label:'Mulch delivery',unit:'$',min:0,max:200,step:5,v:60},
+ {id:'bag',label:'50 L mulch bag',unit:'$',min:3,max:30,step:1,v:12},
+ {id:'edgeLen',label:'Steel edging piece length',unit:'m',min:1,max:3,step:0.1,v:2.2},
+ {id:'edgePrice',label:'Steel edging piece price',unit:'$',min:5,max:100,step:1,v:32},
+ {id:'edgeBack',type:'select',label:'Edge the back too',options:[['no','No'],['yes','Yes']],v:'no'}
+];
+var BED_ALL=BED_DEFS.concat(BED_PRICE_DEFS);
+function cBed(p){
+  var L=+p.L,Wd=+p.Wd,depth=+p.depth,pot=p.pot==='pot';
+  var price=pot?+p.pPot:+p.pTube,sizeLbl=pot?'140 mm pot':'tubestock';
+  var back=PL[p.back],mid=PL[p.mid],front=PL[p.front],mid2=p.mid==='dianella'?PL.lomandra:PL.dianella;
+  var rowsDef;
+  if(Wd<0.9)rowsDef=[{pl:front,c:3},{pl:mid,c:2}];
+  else if(Wd<1.8)rowsDef=[{pl:front,c:3},{pl:mid,c:2},{pl:back,c:1}];
+  else rowsDef=[{pl:front,c:3},{pl:mid2,c:4},{pl:mid,c:2},{pl:back,c:1}];
+  var R=rowsDef.length,yf=0.25;
+  var last=rowsDef[R-1].pl;
+  var yb=Math.min(Math.max(Wd-last.sp/2,yf+0.2),Wd-0.05);
+  var pts=[],table=[],totalPlants=0,rowsInfo=[];
+  rowsDef.forEach(function(rd,k){
+    var n=Math.max(1,Math.round(L/rd.pl.sp)),step=L/n,y=k===0?yf:yf+(yb-yf)*k/(R-1);
+    var shift=k===0?0:(k%2===1?step/4:-step/4);
+    for(var i=0;i<n;i++)pts.push({x:(i+0.5)*step+shift,y:y,r:rd.pl.wid/2,c:rd.c});
+    totalPlants+=n;
+    table.push({pl:rd.pl,n:n,c:rd.c,cost:n*price,step:step,row:['Front','Second','Third','Back'][k]||''});
+    rowsInfo.push(n);
+  });
+  var rowName=R===2?['Front','Back']:R===3?['Front','Middle','Back']:['Front','Low middle','Middle','Back'];
+  table.forEach(function(t,i){t.row=rowName[i]});
+  var plantCost=totalPlants*price;
+  var m3=L*Wd*depth/1000,m3o=Math.max(0.1,ce(m3*10)/10);
+  var bulkCost=m3o*(+p.mulchM3)+(+p.deliv),bags=ce(m3*1000/50),bagCost=bags*(+p.bag);
+  var useBulk=m3>0.5,mulchCost=useBulk?bulkCost:bagCost;
+  var edgeTotal=L+2*Wd+(p.edgeBack==='yes'?L:0),pieceLen=+p.edgeLen;
+  var pieces=ce(edgeTotal/Math.max(0.5,pieceLen-0.1)),edgeCost=pieces*(+p.edgePrice);
+  var minutes=totalPlants*(pot?15:10),hrs=minutes/60;
+  var cost=plantCost+mulchCost+edgeCost;
+  var checks=[];
+  if(Wd<0.9)checks.push({lv:'warn',t:'A bed narrower than 0.9 m only fits two rows, so the back row is left out.'});
+  if(depth<75)checks.push({lv:'warn',t:'Mulch under 75 mm lets weeds through. 75 to 100 mm suppresses them.'});
+  [back,mid,front].forEach(function(pl,i){
+    if(i===0&&Wd<0.9)return;
+    if(pl.warn)checks.push({lv:'warn',t:pl.name+': '+pl.note});
+  });
+  if(front.id==='viola')checks.push({lv:'warn',t:front.note});
+  if(L>20)checks.push({lv:'info',t:'A long bed is easier to plant in stages. Do one third each weekend.'});
+  if(!checks.length)checks.push({lv:'ok',t:'Nothing to flag with these choices.'});
+  var svg=drawBed({L:L,Wd:Wd,pts:pts,edgeBack:p.edgeBack==='yes'});
+  var buy=[];
+  table.forEach(function(t){buy.push({key:'pl-'+t.pl.id,text:t.pl.name+' ('+t.pl.bot+'), '+sizeLbl,qty:String(t.n),src:'Nursery'})});
+  if(useBulk)buy.push({key:'mulch',text:'Hardwood mulch, bulk delivered ('+fm(m3o)+' m³)',qty:fm(m3o)+' m³',src:'Landscape supplier'});
+  else buy.push({key:'mulch',text:'Mulch, 50 L bags',qty:String(bags),src:'Bunnings'});
+  buy.push({key:'edging',text:'Steel garden edging, '+pieceLen+' m pieces (about '+fm(edgeTotal)+' m of edge)',qty:String(pieces),src:'Bunnings'});
+  var stats=[
+    {k:'Plants',v:String(totalPlants),u:sizeLbl},
+    {k:'Mulch',v:fm(m3),u:'m³ at '+depth+' mm'},
+    {k:'Edging pieces',v:String(pieces),u:fm(edgeTotal)+' m of edge'},
+    {k:'Estimated cost',v:money(cost),u:'check prices locally'}
+  ];
+  return {stats:stats,checks:checks,table:table,svg:svg,buy:buy,m3:m3,m3o:m3o,bags:bags,bagCost:bagCost,bulkCost:bulkCost,useBulk:useBulk,edgeTotal:edgeTotal,pieces:pieces,edgeCost:edgeCost,plantCost:plantCost,cost:cost,hrs:hrs,minutes:minutes,totalPlants:totalPlants,pieceLen:pieceLen};
+}
+function drawBed(c){
+  var Lm=c.L*1000,Wm=c.Wd*1000,drv=800;
+  var S=Sheet(Lm,Wm+drv);
+  S.rect(0,0,Lm,drv,'grav');
+  S.text(Lm/2,drv/2,'Driveway','lbl','middle',0,4);
+  S.rect(0,drv,Lm,Wm,'bed');
+  c.pts.forEach(function(p){S.circle(p.x*1000,drv+p.y*1000,p.r*1000,'cn'+p.c)});
+  c.pts.forEach(function(p){S.circle(p.x*1000,drv+p.y*1000,2.2,'cd'+p.c,true)});
+  S.line(0,drv,Lm,drv,'edge');S.line(0,drv,0,drv+Wm,'edge');S.line(Lm,drv,Lm,drv+Wm,'edge');
+  if(c.edgeBack)S.line(0,drv+Wm,Lm,drv+Wm,'edge');
+  S.dimH(0,Lm,0,fm(c.L)+' m',30);
+  S.dimV(drv,drv+Wm,Lm,fm(c.Wd)+' m',30);
+  return S.svg('Plan view of the driveway bed with plant positions');
+}
+
+/* ---- Task data ---- */
+var PHASES=[
+ {id:'clear',name:'Clear and decide',when:'Oct–Nov 2026',from:'2026-10-01',to:'2026-11-30',tasks:[
+  ['clear-photo','Take a ‘before’ photo from the driveway end'],
+  ['clear-decide','Decide keep or remove for each plant (see the guide below)'],
+  ['clear-grasses','Cut ornamental grasses to 10–15 cm, or dig them out if removing them'],
+  ['clear-fork','Fork out the weedy grass, roots and all'],
+  ['clear-lavender','Trim lavender lightly: a third at most, in green growth only']]},
+ {id:'edge',name:'Edge and suppress',when:'Dec 2026–Feb 2027',from:'2026-12-01',to:'2027-02-28',tasks:[
+  ['edge-measure','Measure the bed and enter the real numbers in the planner'],
+  ['edge-steel','Install steel edging along the driveway'],
+  ['edge-mulch','Spread 75–100 mm of hardwood mulch, kept clear of trunks and stems'],
+  ['edge-weed','Spot-weed every fortnight']]},
+ {id:'plant',name:'Plant',when:'Mar–Apr 2027',from:'2027-03-01',to:'2027-04-30',tasks:[
+  ['plant-order','Order tubestock from a local native nursery (February)'],
+  ['plant-mark','Mark plant positions from the planner layout'],
+  ['plant-plant','Part the mulch, plant, and water each in with a full bucket'],
+  ['plant-water','Water weekly until the winter rains arrive']]},
+ {id:'est',name:'Establish',when:'May 2027 onward',from:'2027-05-01',to:'2099-12-31',tasks:[
+  ['est-mulch','Top the mulch back up to 75 mm'],
+  ['est-trim','Do the first light trims in late winter or spring']]}
+];
+var ALLTASKS=[];PHASES.forEach(function(ph){ph.tasks.forEach(function(t){ALLTASKS.push({id:t[0],text:t[1],phase:ph})})});
+var FROST=['none','none','low','moderate','high','high','high','high','high','moderate','low','none'];
+var CAL=[
+ {g:'Water new plants deeply once a week, early morning. Keep pulling weeds before they seed. Keep mulch topped up to hold moisture.',w:'A hot garage shortens glue open time. Glue up and finish early in the day.'},
+ {g:'Trim lavender by about a third after flowering, staying in green growth. Order native tubestock for autumn planting.',w:'Good finishing weather. Water-based poly dries fast; sand lightly between coats.'},
+ {g:'Start planting natives after the first decent autumn rain. The soil is still warm, so roots establish fast.',w:'Ideal all-round workshop month.'},
+ {g:'Best planting month. Water each plant in with a full bucket. Top up mulch. First frosts are possible late in the month.',w:'Get outdoor builds sealed before winter.'},
+ {g:'Finish planting by mid-May. Frosts begin. Leave pruning until spring.',w:'Water-based finishes need about 10°C or more to cure. Finish indoors or in a heated room.'},
+ {g:'A quiet month. Let the correas flower for the honeyeaters. Plan spring jobs.',w:'Indoor assembly projects. PVA glue fails below about 10°C, so warm the room before gluing.'},
+ {g:'Coldest month. Avoid walking on frosted or soggy beds.',w:'Plan the outdoor builds. Measure the catio site.'},
+ {g:'Late winter: cut ornamental grasses to 10–15 cm, shear common everlasting by half, and comb dead leaves out of lomandra.',w:'Buy and acclimatise timber indoors for spring builds.'},
+ {g:'Spring growth and the weeds surge. Pull them while they’re small. Frosts are still common.',w:'Longer days. Start outdoor builds once it’s dry.'},
+ {g:'Weeds peak, so pull them before they seed. Prune grevillea lightly after flowering. Late frosts are possible into early November.',w:'Treated-pine outdoor builds. Wear a P2 mask when cutting treated pine.'},
+ {g:'The frost window closes. Top up mulch before summer. Avoid planting new natives now unless you can water often.',w:'Seal outdoor timber before the summer sun.'},
+ {g:'Settle into a watering routine. Do a fire-season tidy: keep dead material away from the house.',w:'Long evenings suit outdoor builds.'}
+];
+var GUIDE=[
+ {n:'Ornamental grasses',v:'remove',vl:'Remove, or cut back',t:'Remove them, or cut them to 10–15 cm each late winter. Lomandra gives the same look with less work.'},
+ {n:'Lavender',v:'depends',vl:'Depends on the wood',t:'Keep it if there is green growth near the base. Trim by a third after flowering. Never cut into bare wood, because old lavender rarely reshoots from it. If it is leggy and woody, replace it with native rosemary.'},
+ {n:'Large eucalyptus',v:'keep',vl:'Keep',t:'Leave it. Get an arborist only if limbs hang over the house or driveway. Keep mulch off the trunk. The dry root zone suits lomandra and dianella.'},
+ {n:'Established shrubs on the left',v:'keep',vl:'Keep',t:'Keep them and tidy after flowering.'}
+];
+var PROJ_ORDER=['bookshelf','perch','catio','cabinet'];
+var PROJ={
+ bookshelf:{name:'Bookshelf boxes',step:1,blurb:'Stackable boxes with a crown moulding cap. Square cuts, glue and screws: the best first project back.',skills:['Measuring and marking','Square crosscuts','Pocket-hole joints','Water-based finishing'],defs:BOOK_DEFS,compute:cBook,group:'bookshelf'},
+ perch:{name:'Cat perch',step:2,blurb:'A tiered platform post. Teaches load-bearing joints and stability.',skills:['Laminating a heavy base','Fixing into end grain','Brackets and braces','Upholstering with carpet'],defs:PERCH_DEFS,compute:cPerch,group:'perch'},
+ catio:{name:'Catio pod',step:3,blurb:'A mesh enclosure attached to the house wall with a sloped clear roof. The first outdoor, structural build.',skills:['Framing with treated pine','Fixing to a house wall','Roof fall and sheeting','Working with welded mesh'],defs:CATIO_DEFS,compute:cCatio,group:'catio'},
+ cabinet:{name:'Display cabinet',step:4,blurb:'A hardwood cabinet with glass doors and warm LED light. Default size suits the LEGO UCS Millennium Falcon (75192), about 84 × 56 × 21 cm; change it to suit your piece.',skills:['Hardwood selection and acclimatising','Rebates with a router','Door frames','Glazing and LED wiring'],defs:CAB_DEFS,compute:cCab,group:'cabinet'}
+};
+var GROUP_LABEL={bed:'Driveway bed',bookshelf:'Bookshelf',perch:'Cat perch',catio:'Catio pod',cabinet:'Display cabinet',tools:'Starter kit',manual:'Added by you'};
+var SOURCES=['Bunnings','Nursery','Timber merchant','Flooring company','Glazier','Landscape supplier','Rural supply','Other'];
+var API={pack:pack,bestStock:bestStock,Sheet:Sheet,PROJ:PROJ,cBed:cBed,BED_ALL:BED_ALL,defaultsOf:defaultsOf,fmm:fmm,fm:fm,money:money,planHTML:planHTML};
+if(typeof module!=='undefined'&&module.exports)module.exports=API;
+
+if(typeof document==='undefined'||!document.getElementById)return;
+
+/* ================= UI ================= */
+var ST={},MD={},wtabCur=null,clearConfirm=false,copyText=null;
+function sentences(s){return s.split('. ').map(function(x){return x.replace(/\.$/,'')+'.'})}
+function toast(msg){var t=$('#toast');t.textContent=msg;t.classList.add('on');clearTimeout(toast._t);toast._t=setTimeout(function(){t.classList.remove('on')},2600)}
+function refocus(sel){var el=sel&&$(sel);if(el)try{el.focus()}catch(e){}}
+function getTasks(){var t=lsGet('tasks',{});return t&&typeof t==='object'?t:{}}
+function getBuilt(){var t=lsGet('built',{});return t&&typeof t==='object'?t:{}}
+function currentPhase(){
+  var now=new Date(),found=null;
+  PHASES.forEach(function(ph){var a=new Date(ph.from+'T00:00:00'),b=new Date(ph.to+'T23:59:59');if(now>=a&&now<=b)found=ph});
+  return found;
+}
+function taskBox(id,text,done,extra){
+  return '<label class="chk'+(done?' done':'')+'"><input type="checkbox" data-task="'+id+'"'+(done?' checked':'')+(extra||'')+'><span>'+esc(text)+'</span></label>';
+}
+
+/* ---- Today ---- */
+function renderToday(){
+  var now=new Date(),m=now.getMonth(),fr=FROST[m],cal=CAL[m],tasks=getTasks(),built=getBuilt();
+  var done=ALLTASKS.filter(function(t){return tasks[t.id]}).length,total=ALLTASKS.length;
+  var nt=ALLTASKS.filter(function(t){return !tasks[t.id]})[0];
+  var np=PROJ_ORDER.filter(function(k){return !built[k]})[0];
+  var frCls=fr==='high'?'bad':fr==='moderate'?'warn':'ok';
+  var h='<div class="hero"><div class="eyebrow">Today</div><h1>'+MONTHS[m]+' in Ballarat</h1><div class="pills"><span class="pill season">'+cap(seasonOf(m))+'</span><span class="pill '+frCls+'">Frost risk: '+fr+'</span></div><p class="sub">Ballarat’s last frosts can arrive in early November.</p></div>';
+  h+='<div class="grid2 sec" style="margin-top:22px"><div class="card g"><div class="eyebrow">Garden</div><h3>In the garden this month</h3><ul>'+sentences(cal.g).map(function(s){return '<li>'+esc(s)+'</li>'}).join('')+'</ul></div>';
+  h+='<div class="card w"><div class="eyebrow">Workshop</div><h3>In the workshop this month</h3><ul>'+sentences(cal.w).map(function(s){return '<li>'+esc(s)+'</li>'}).join('')+'</ul></div></div>';
+  h+='<div class="grid2 sec"><div class="panel"><div class="eyebrow">Up next</div><h3>Garden</h3>';
+  h+=nt?taskBox(nt.id,nt.text,false,' id="up_task"')+'<div class="muted" style="font-size:13px">'+esc(nt.phase.name)+', '+esc(nt.phase.when)+'</div>':'<p>Every garden task is ticked. Enjoy the bed.</p>';
+  h+='<h3 style="margin-top:16px">Workshop</h3>';
+  if(np){var P=PROJ[np];h+='<div class="row" style="justify-content:space-between"><div><b>Step '+P.step+': '+esc(P.name)+'</b><div class="muted" style="font-size:13px">'+esc(P.skills.slice(0,2).join(', '))+'</div></div><button class="btn btn-primary" id="up_open" data-act="openproj" data-p="'+np+'" style="--acc:var(--timber)">Open</button></div>'}
+  else h+='<p>All four builds are done.</p>';
+  h+='</div><div class="panel"><div class="eyebrow">Driveway bed</div><h3>Progress</h3><div class="prog" role="progressbar" aria-valuemin="0" aria-valuemax="'+total+'" aria-valuenow="'+done+'" aria-label="Driveway bed tasks done"><i style="width:'+(done/total*100)+'%"></i></div><p class="mono" style="margin-top:8px">'+done+' of '+total+' tasks done</p><a class="btn" href="#garden">Open the garden plan</a></div></div>';
+  h+='<div class="sec"><div class="eyebrow" style="color:var(--timber)">Learning sequence</div><h2>Woodwork path</h2><ol class="path">';
+  PROJ_ORDER.forEach(function(k,i){var P=PROJ[k];h+='<li><span class="n">'+(i+1)+'</span><div><b>'+esc(P.name)+'</b><div class="muted" style="font-size:13.5px">Teaches: '+esc(P.skills.join(', ').toLowerCase())+'</div></div><label class="chk built" style="--acc:var(--timber)"><input type="checkbox" data-built="'+k+'" id="built_'+k+'"'+(built[k]?' checked':'')+'><span>Built it</span></label></li>'});
+  h+='</ol></div>';
+  $('#page-today').innerHTML=h;
+}
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1)}
+
+/* ---- Garden ---- */
+function phasesHTML(){
+  var tasks=getTasks(),cur=currentPhase();
+  return PHASES.map(function(ph){
+    var d=ph.tasks.filter(function(t){return tasks[t[0]]}).length,now=cur&&cur.id===ph.id;
+    return '<div class="phase'+(now?' now':'')+'"><div class="ph"><h3 style="margin:0">'+esc(ph.name)+(now?' <span class="pill ok">Now</span>':'')+'</h3><span class="mono muted">'+esc(ph.when)+' · '+d+'/'+ph.tasks.length+'</span></div>'+ph.tasks.map(function(t){return taskBox(t[0],t[1],!!tasks[t[0]])}).join('')+'</div>';
+  }).join('');
+}
+function ctlInner(pid,mainDefs,priceDefs){
+  var st=ST[pid],h='<div class="eyebrow" style="margin-bottom:10px">Dimensions</div>'+fieldsHTML(pid,mainDefs,st);
+  if(priceDefs)h+='<details class="panel" style="padding:12px 14px;margin-bottom:12px"><summary>Prices and assumptions</summary><p class="hint" style="margin-top:0">These are estimates. Check prices at your local nursery, Bunnings and landscape supplier.</p>'+fieldsHTML(pid,priceDefs,st)+'</details>';
+  return h+'<button class="btn-link" id="reset_'+pid+'" data-act="reset" data-p="'+pid+'">Reset to defaults</button>';
+}
+function bedOutHTML(m,st){
+  var h='<div class="stats">'+m.stats.map(statHTML).join('')+'</div>';
+  h+='<div class="panel"><div class="eyebrow">Plan view, to scale</div><div class="svgwrap">'+m.svg+'</div><div class="legend">';
+  m.table.forEach(function(t){h+='<span><i class="dot lg'+t.c+'"></i>'+esc(t.pl.name)+' ('+t.row.toLowerCase()+')</span>'});
+  h+='<span><i class="dot" style="background:var(--acc)"></i>Steel edging</span></div><div class="cap">Circles show each plant at its mature width. Driveway at the bottom.</div></div>';
+  h+='<div><h3>Checks</h3>'+checksHTML(m.checks)+'</div>';
+  h+='<div><h3>Plants by species</h3><div class="tw"><table><thead><tr><th>Species</th><th>Row</th><th class="m r">Count</th><th class="m r">Spacing</th><th class="m r">Cost</th></tr></thead><tbody>'+m.table.map(function(t){return '<tr><td><b>'+esc(t.pl.name)+'</b><div class="muted" style="font-size:12.5px">'+esc(t.pl.bot)+'</div></td><td>'+t.row+'</td><td class="m r">'+t.n+'</td><td class="m r">'+fm(t.step)+' m</td><td class="m r">'+money(t.cost)+'</td></tr>'}).join('')+'</tbody></table></div></div>';
+  h+='<div class="grid2"><div class="panel"><div class="eyebrow">Mulch</div><h3>'+fm(m.m3)+' m³ at '+st.depth+' mm</h3><p class="mono" style="margin-bottom:4px">Bulk: '+fm(m.m3o)+' m³, '+money(m.bulkCost)+' with delivery</p><p class="mono">Bags: '+m.bags+' × 50 L, '+money(m.bagCost)+'</p><p><b>'+(m.useBulk?'Order bulk.':'Buy bags.')+'</b> '+(m.useBulk?'Above about 0.5 m³ a delivered load costs less and saves many trips.':'Under about 0.5 m³ bags are easier than a delivery fee.')+'</p></div>';
+  h+='<div class="panel"><div class="eyebrow">Edging and time</div><h3>'+fm(m.edgeTotal)+' m of steel edging</h3><p class="mono" style="margin-bottom:4px">'+m.pieces+' pieces of '+m.pieceLen+' m, '+money(m.edgeCost)+'</p><p class="muted" style="font-size:13px">Each piece overlaps the next by 100 mm.</p><p><b>Planting time:</b> about '+fm(m.hrs)+' hours ('+fmm(m.minutes)+' minutes at '+(st.pot==='pot'?15:10)+' minutes per plant).</p></div></div>';
+  h+='<div class="panel"><h3>Shopping for this bed</h3>'+buyHTML(m.buy)+'<div style="margin-top:12px"><button class="btn btn-primary" id="add_bed" data-act="addlist" data-p="bed">Add to shopping list</button></div></div>';
+  return h;
+}
+function renderGarden(){
+  ST.bed=loadState('bed',BED_ALL);
+  var h='<div class="phead"><div class="eyebrow" style="color:var(--leaf)">Garden</div><h1>Driveway bed</h1><p>Clear the old planting, edge it, mulch it, then plant natives that cope with Ballarat frosts.</p></div>';
+  h+='<div class="sec" style="margin-top:0"><div class="eyebrow">Renovation</div><h2>Driveway bed renovation</h2><div class="phases" id="g-phases">'+phasesHTML()+'</div></div>';
+  h+='<div class="sec"><div class="eyebrow">What is already there</div><h2>Keep or remove?</h2><div class="panel">'+GUIDE.map(function(g){return '<div class="kr"><div><span class="v '+g.v+'">'+esc(g.vl)+'</span><br><b>'+esc(g.n)+'</b></div><div>'+esc(g.t)+'</div></div>'}).join('')+'</div></div>';
+  h+='<div class="sec"><div class="eyebrow">Planner</div><h2>Bed planner</h2><div class="layout"><div class="panel ctl" id="ctl_bed">'+ctlInner('bed',BED_DEFS,BED_PRICE_DEFS)+'</div><div class="out" id="out_bed"></div></div></div>';
+  h+='<div class="sec"><div class="eyebrow">Reference</div><h2>Plant library</h2><div class="grid3">'+PLANTS.map(function(p){
+    return '<div class="card pcard g"><h3>'+esc(p.name)+'<span class="pill '+(p.warn?'warn':'ok')+'">'+(p.warn?'Frost: take care':'Frost hardy')+'</span></h3><div class="bot">'+esc(p.bot)+'</div><p>'+esc(p.note)+'</p><dl><dt>Height</dt><dd class="mono">'+esc(p.height)+'</dd><dt>Spread</dt><dd class="mono">'+fm(p.wid)+' m</dd><dt>Frost</dt><dd>'+esc(p.frost)+'</dd><dt>Sun</dt><dd>'+esc(p.sun)+'</dd><dt>Flowers</dt><dd>'+esc(p.flowers)+'</dd><dt>Care</dt><dd>'+esc(p.care)+'</dd></dl></div>';
+  }).join('')+'</div></div>';
+  $('#page-garden').innerHTML=h;
+  bindFields($('#ctl_bed'),'bed',BED_ALL,ST.bed,function(){updateOut('bed')});
+  updateOut('bed');
+}
+
+/* ---- Workshop ---- */
+function renderOutGeneric(m){
+  var h='<div class="stats">'+m.stats.map(statHTML).join('')+'</div>';
+  h+='<div class="panel"><div class="eyebrow">Drawing, to scale</div><div class="svgwrap">'+m.svg+'</div><div class="cap">All dimensions in mm.</div></div>';
+  h+='<div><h3>Checks</h3>'+checksHTML(m.checks)+'</div>';
+  h+='<div><h3>Cut list</h3>'+cutsHTML(m.cuts)+'</div>';
+  h+='<div><h3>Cutting plan</h3>'+m.plans.map(planHTML).join('')+'<div class="cap">Hatched areas are offcuts. Plans allow 3 mm for each saw cut.</div></div>';
+  h+='<div class="panel"><h3>What to buy</h3>'+buyHTML(m.buy)+'<div style="margin-top:12px"><button class="btn btn-primary" id="add_cur" data-act="addlist" data-p="__cur__">Add to shopping list</button></div></div>';
+  h+='<div><h3>Build steps</h3><ol class="steps">'+m.steps.map(function(s){return '<li>'+esc(s)+'</li>'}).join('')+'</ol></div>';
+  return h;
+}
+function updateOut(pid){
+  var el=$('#out_'+pid);if(!el)return;
+  var m,st=ST[pid];
+  if(pid==='bed'){m=cBed(st);MD.bed=m;el.innerHTML=bedOutHTML(m,st)}
+  else{m=PROJ[pid].compute(st);MD[pid]=m;el.innerHTML=renderOutGeneric(m).replace('data-p="__cur__"','data-p="'+pid+'"')}
+}
+var REFRESH=[
+ {t:'Safety first',l:['Safety glasses and ear muffs every time the saw or router runs.','A P2 mask for MDF and treated-pine dust.','Clamp the work and never cut freehand.','Remove the battery before changing blades.','Keep your hands behind the blade line.']},
+ {t:'Starter kit, on the Ryobi 18V platform',l:['Drill/driver and impact driver.','Circular saw with a clamped straight-edge, or get the store to rip sheets.','Pocket-hole jig.','Combination square, tape and pencil.','4 × 600 mm F-clamps.','Random orbital sander.','PVA glue, indoor and outdoor.']},
+ {t:'Measuring and marking',l:['Use one tape for the whole project.','Mark the waste side with an X.','Cut on the waste side of the line. The blade removes about 3 mm, which is why the cutting plans allow 3 mm kerf.']},
+ {t:'Joints in these projects',l:['Butt joints with pocket screws for the boxes.','Braces for the perch.','Screwed butt joints with galvanised brackets for the catio.','Half-laps and rebates for the cabinet doors.']}
+];
+function renderWorkshop(){
+  var tab=lsGet('wtab','bookshelf');
+  if(tab!=='refresher'&&!PROJ[tab])tab='bookshelf';
+  var tabs=PROJ_ORDER.map(function(k){return [k,PROJ[k].name]}).concat([['refresher','Refresher']]);
+  var h='<div class="stabs" role="tablist" aria-label="Workshop projects">'+tabs.map(function(t){return '<button role="tab" id="wt_'+t[0]+'" data-act="wtab" data-p="'+t[0]+'" aria-selected="'+(t[0]===tab)+'">'+esc(t[1])+'</button>'}).join('')+'</div>';
+  if(tab==='refresher'){
+    h+='<div class="phead"><div class="st eyebrow" style="color:var(--timber)">Back after 20 years</div><h1>Refresher</h1><p>The short version of what to remember before the first cut.</p></div><div class="grid2">'+REFRESH.map(function(c){return '<div class="card w"><h3>'+esc(c.t)+'</h3><ul>'+c.l.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ul></div>'}).join('')+'</div>';
+    $('#page-workshop').innerHTML=h;wtabCur=tab;return;
+  }
+  var P=PROJ[tab];
+  ST[tab]=loadState(tab,P.defs);
+  h+='<div class="phead"><div class="st">Step '+P.step+' of 4</div><h1>'+esc(P.name)+'</h1><p>'+esc(P.blurb)+'</p><div class="skills">'+P.skills.map(function(s){return '<span>'+esc(s)+'</span>'}).join('')+'</div></div>';
+  h+='<div class="layout"><div class="panel ctl" id="ctl_'+tab+'">'+ctlInner(tab,P.defs)+'</div><div class="out" id="out_'+tab+'"></div></div>';
+  $('#page-workshop').innerHTML=h;wtabCur=tab;
+  bindFields($('#ctl_'+tab),tab,P.defs,ST[tab],function(){updateOut(tab)});
+  updateOut(tab);
+}
+
+/* ---- List ---- */
+function getList(){var l=lsGet('list',[]);return Array.isArray(l)?l:[]}
+function seedList(){
+  if(lsHas('list'))return;
+  var t=['Ryobi 18V hedge trimmer','Ryobi 18V line trimmer','Bypass loppers','Garden fork','Gardening gloves','Spade or mattock for digging out grass clumps'];
+  sync.applying=true;
+  lsSet('list',t.map(function(x){return {id:'tools:'+slug(x),text:x,qty:'1',src:'Bunnings',group:'tools',done:false}}));
+  sync.applying=false;
+}
+function addGroup(group,items,label){
+  var old=getList(),dm={};
+  old.forEach(function(i){if(i.group===group)dm[i.id]=i.done});
+  var rest=old.filter(function(i){return i.group!==group});
+  var neu=items.map(function(b){var id=group+':'+(b.key||slug(b.text));return {id:id,text:b.text,qty:String(b.qty),src:b.src,group:group,done:!!dm[id]}});
+  lsSet('list',rest.concat(neu));
+  toast('Added '+neu.length+' items from '+label);
+}
+function listText(){
+  var l=getList(),out=[];
+  SOURCES.forEach(function(s){var g=l.filter(function(i){return i.src===s});if(!g.length)return;out.push(s);g.forEach(function(i){out.push((i.done?'[x] ':'[ ] ')+i.qty+'  '+i.text)});out.push('')});
+  return out.join('\n').trim();
+}
+function renderList(focusSel){
+  var l=getList(),ticked=l.filter(function(i){return i.done}).length;
+  var h='<div class="phead"><div class="eyebrow" style="color:var(--leaf)">Shopping</div><h1>Shopping list</h1><p>'+l.length+' items, '+ticked+' ticked. Project lists land here when you press Add to shopping list.</p></div>';
+  h+='<div class="row" style="margin-bottom:22px"><button class="btn btn-primary" id="list_copy" data-act="copy">Copy list</button>';
+  if(!clearConfirm)h+='<button class="btn" id="list_clear" data-act="clear1"'+(ticked?'':' disabled')+'>Clear ticked</button>';
+  else h+='<span>Remove '+ticked+' ticked item'+(ticked===1?'':'s')+'?</span><button class="btn" id="list_clear_yes" data-act="clear2">Yes, remove</button><button class="btn" id="list_clear_no" data-act="clear0">Keep them</button>';
+  h+='</div>';
+  if(copyText!==null)h+='<div class="panel" style="margin-bottom:22px"><label for="list_copy_area" class="eyebrow">Select and copy</label><textarea id="list_copy_area" rows="8" readonly style="margin-top:8px;font:13px var(--mono)">'+esc(copyText)+'</textarea></div>';
+  if(!l.length)h+='<p class="muted">Nothing here yet.</p>';
+  SOURCES.forEach(function(s){
+    var g=l.filter(function(i){return i.src===s});if(!g.length)return;
+    h+='<div class="gl"><div class="eyebrow">'+esc(s)+'</div>'+g.map(function(i){
+      return '<div class="li'+(i.done?' done':'')+'"><input type="checkbox" id="li_'+esc(i.id)+'" data-lid="'+esc(i.id)+'"'+(i.done?' checked':'')+' aria-label="Tick '+esc(i.text)+'"><span class="q">'+esc(i.qty)+'</span><span class="t">'+esc(i.text)+'</span><span>'+(i.group==='tools'?'<span class="starter">Starter</span> ':'')+'<span class="tag">'+esc(GROUP_LABEL[i.group]||i.group)+'</span></span><button class="btn-link" data-act="rm" data-id="'+esc(i.id)+'" aria-label="Remove '+esc(i.text)+'">Remove</button></div>';
+    }).join('')+'</div>';
+  });
+  h+='<form class="panel addf" id="list_form" autocomplete="off"><div class="wide"><label for="list_item">Item</label><input id="list_item" type="text" required></div><div><label for="list_qty">Qty</label><input id="list_qty" type="text" value="1" class="mono"></div><div><label for="list_src">Source</label><select id="list_src">'+SOURCES.map(function(s){return '<option>'+s+'</option>'}).join('')+'</select></div><div class="wide"><button class="btn btn-primary" type="submit" id="list_add">Add item</button></div></form>';
+  $('#page-list').innerHTML=h;
+  refocus(focusSel);
+}
+
+/* ---- events ---- */
+document.addEventListener('click',function(e){
+  var b=e.target.closest('[data-act]');if(!b)return;
+  var a=b.dataset.act,p=b.dataset.p;
+  if(a==='reset'){
+    var defs=p==='bed'?BED_ALL:PROJ[p].defs;
+    ST[p]=defaultsOf(defs);lsSet('proj_'+p,ST[p]);
+    var c=$('#ctl_'+p);
+    /* rebind state: handlers hold the old object, so rebuild the controls element */
+    var nc=c.cloneNode(false);c.parentNode.replaceChild(nc,c);
+    nc.innerHTML=p==='bed'?ctlInner('bed',BED_DEFS,BED_PRICE_DEFS):ctlInner(p,PROJ[p].defs);
+    bindFields(nc,p,defs,ST[p],function(){updateOut(p)});
+    updateOut(p);refocus('#reset_'+p);
+  }else if(a==='addlist'){
+    var m=MD[p];if(!m)return;
+    addGroup(p==='bed'?'bed':PROJ[p].group,m.buy,p==='bed'?'the driveway bed':PROJ[p].name);
+  }else if(a==='wtab'){lsSet('wtab',p);renderWorkshop();refocus('#wt_'+p)}
+  else if(a==='openproj'){lsSet('wtab',p);if(location.hash==='#workshop')route();else location.hash='workshop'}
+  else if(a==='rm'){var id=b.dataset.id;lsSet('list',getList().filter(function(i){return i.id!==id}));renderList('#list_copy')}
+  else if(a==='copy'){
+    var txt=listText();
+    var fallback=function(){copyText=txt;renderList('#list_copy_area');var ta=$('#list_copy_area');if(ta){ta.focus();ta.select()}toast('Select the text and copy it')};
+    try{
+      if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(txt).then(function(){toast('List copied')},fallback);
+      else fallback();
+    }catch(err){fallback()}
+  }
+  else if(a==='clear1'){clearConfirm=true;renderList('#list_clear_no')}
+  else if(a==='clear0'){clearConfirm=false;renderList('#list_clear')}
+  else if(a==='clear2'){clearConfirm=false;lsSet('list',getList().filter(function(i){return !i.done}));renderList('#list_copy');toast('Ticked items removed')}
+});
+document.addEventListener('change',function(e){
+  var el=e.target,d=el.dataset||{};
+  if(d.task){
+    var t=getTasks();if(el.checked)t[d.task]=true;else delete t[d.task];lsSet('tasks',t);
+    var cur=(location.hash||'#today').replace('#','');
+    if(cur==='garden'){$('#g-phases').innerHTML=phasesHTML();refocus('[data-task="'+d.task+'"]')}
+    else{renderToday();refocus('#up_task')}
+  }else if(d.built){
+    var bt=getBuilt();if(el.checked)bt[d.built]=true;else delete bt[d.built];lsSet('built',bt);
+    renderToday();refocus('#built_'+d.built);
+  }else if(d.lid){
+    lsSet('list',getList().map(function(i){if(i.id===d.lid)i.done=el.checked;return i}));
+    clearConfirm=false;renderList('[data-lid="'+d.lid+'"]');
+  }
+});
+document.addEventListener('submit',function(e){
+  if(e.target.id!=='list_form')return;
+  e.preventDefault();
+  var txt=$('#list_item').value.trim();if(!txt)return;
+  var l=getList();
+  l.push({id:'manual:'+Date.now().toString(36)+Math.floor(Math.random()*1e4),text:txt,qty:$('#list_qty').value.trim()||'1',src:$('#list_src').value,group:'manual',done:false});
+  lsSet('list',l);renderList('#list_item');toast('Added '+txt);
+});
+
+
+/* ================= Google Sheet sync ================= */
+var SHEET_ID='1S5kGsM0CJkQQGEvisQMZDhrfdCosY025MqKxtej9Rvc';
+var GROUP_NAME={bed:'Driveway bed',bookshelf:'Bookshelf',perch:'Cat perch',catio:'Catio pod',cabinet:'Display cabinet',tools:'Garden starter kit',manual:'Mine'};
+var PROJ_KEYS=['bed'].concat(PROJ_ORDER);
+var RANGES={tasks:'Tasks!A2:E',list:'List!A2:G',projects:'Projects!A2:D'};
+var TABNAME={tasks:'Tasks',list:'List',projects:'Projects'};
+var WIDTH={tasks:5,list:7,projects:4};
+var sync={tr:null,kind:'none',connected:false,busy:false,again:false,err:false,last:0,timer:null,known:{tasks:0,list:0,projects:0},ver:{tasks:0,list:0,projects:0},applying:false,headerDone:false,seen:{}};
+try{sync.last=+localStorage.getItem('ss_lastsync')||0}catch(e){}
+function lsRaw(k){try{return JSON.parse(localStorage.getItem('ss_'+k)||'null')}catch(e){return null}}
+function lsRawSet(k,v){try{localStorage.setItem('ss_'+k,JSON.stringify(v))}catch(e){}}
+function getDirty(){var d=lsRaw('dirty');return d&&typeof d==='object'?d:{}}
+function setDirty(d){lsRawSet('dirty',d)}
+function anyDirty(){var d=getDirty();return !!(d.tasks||d.list||d.projects)}
+function tabOfKey(k){return k==='tasks'?'tasks':k==='list'?'list':(k==='built'||k.indexOf('proj_')===0)?'projects':null}
+syncHook=function(k){
+  if(sync.applying)return;
+  var t=tabOfKey(k);if(!t)return;
+  var d=getDirty();d[t]=1;setDirty(d);sync.ver[t]++;
+  if(sync.connected){clearTimeout(sync.timer);sync.timer=setTimeout(function(){flush()},1500)}
+  paintSync();
+};
+function truthy(v){if(v===true)return true;var s=String(v==null?'':v).trim().toLowerCase();return s==='true'||s==='yes'||s==='1'||s==='y'}
+function todayISO(){var d=new Date();return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
+function normDate(v){
+  if(v==null||v==='')return '';
+  if(typeof v==='number'&&isFinite(v))return new Date(Math.round((v-25569)*864e5)).toISOString().slice(0,10);
+  var s=String(v).trim(),m=s.match(/^(\d{4})-(\d{2})-(\d{2})/);if(m)return m[1]+'-'+m[2]+'-'+m[3];
+  m=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);if(m)return m[3]+'-'+('0'+m[2]).slice(-2)+'-'+('0'+m[1]).slice(-2);
+  return s;
+}
+function cell(r,i){return r&&r[i]!=null?r[i]:''}
+
+/* build rows from local state */
+function tasksRows(){
+  var t=getTasks(),dates=lsRaw('taskdates')||{},ch=false;
+  var rows=ALLTASKS.map(function(x){
+    var done=!!t[x.id],on='';
+    if(done){on=dates[x.id]||'';if(!on){on=dates[x.id]=todayISO();ch=true}}
+    else if(dates[x.id]){delete dates[x.id];ch=true}
+    return [x.id,x.text,x.phase.name,done,on];
+  });
+  if(ch)lsRawSet('taskdates',dates);
+  return rows;
+}
+function listRows(){
+  return getList().map(function(i){return [i.id,i.text,i.qty,i.src,GROUP_NAME[i.group]||i.group,!!i.done,i.group]});
+}
+function projectsRows(){
+  var rows=[],today=todayISO();
+  function add(key,obj,note){
+    var v=JSON.stringify(obj),s=sync.seen[key];
+    var u=(s&&s.v===v)?s.u:today;sync.seen[key]={v:v,u:u};
+    rows.push([key,v,u,note]);
+  }
+  add('built',getBuilt(),'Woodwork path progress');
+  PROJ_KEYS.forEach(function(p){
+    var defs=p==='bed'?BED_ALL:PROJ[p].defs;
+    add('proj_'+p,loadState(p,defs),(p==='bed'?'Driveway bed planner':PROJ[p].name)+' settings');
+  });
+  return rows;
+}
+var BUILD={tasks:tasksRows,list:listRows,projects:projectsRows};
+
+/* transports */
+var google_={
+  cfgKey:'ss_gconfig',tokKey:'ss_gtoken',client:null,
+  cfg(){try{return JSON.parse(localStorage.getItem(this.cfgKey)||'null')||{}}catch(e){return {}}},
+  saveCfg(c){try{localStorage.setItem(this.cfgKey,JSON.stringify({...this.cfg(),...c}))}catch(e){}},
+  tok(){try{return JSON.parse(localStorage.getItem(this.tokKey)||'null')}catch(e){return null}},
+  valid(){const t=this.tok();return !!(t&&t.exp>Date.now())},
+  async callTool(server,tool,input){
+    if(!this.valid()){googleSignedOut();throw {code:'google_signin'}}
+    const base=`https://sheets.googleapis.com/v4/spreadsheets/${input.spreadsheetId}/values/${encodeURIComponent(input.range)}`;
+    const url=tool==='get_values'?base:tool==='append_values'?base+':append?valueInputOption=USER_ENTERED':base+'?valueInputOption=USER_ENTERED';
+    const opts={method:tool==='get_values'?'GET':tool==='append_values'?'POST':'PUT',headers:{Authorization:'Bearer '+this.tok().t}};
+    if(tool!=='get_values'){opts.headers['Content-Type']='application/json';opts.body=JSON.stringify({values:input.values})}
+    const res=await fetch(url,opts);
+    if(res.status===401){try{localStorage.removeItem(this.tokKey)}catch(e){}googleSignedOut();throw {code:'google_signin'}}
+    const body=await res.json().catch(()=>({}));
+    if(!res.ok)throw {code:'tool_error',message:(body.error&&body.error.message)||'HTTP '+res.status};
+    return {payload:body};
+  }
+};
+function framedByClaude(){
+  try{if(window.self===window.top)return false}catch(e){return true}
+  try{var ao=window.location.ancestorOrigins;if(ao&&ao.length){for(var i=0;i<ao.length;i++)if(/claude\.(ai|com)|anthropic\.com/.test(ao[i]))return true}}catch(e){}
+  return /claude\.(ai|com)|anthropic\.com/.test(document.referrer||'');
+}
+async function pickTransport(){
+  if(window.claude&&window.claude.use){
+    var mcp=null;try{mcp=await window.claude.use('mcp')}catch(e){}
+    if(mcp)return {kind:'claude',callTool:function(s,t,i){return t==='get_values'?mcp.callTool(s,t,i,{cache:false}):mcp.callTool(s,t,i)}};
+  }
+  if(framedByClaude())return {kind:'none'};
+  return {kind:'google',callTool:function(s,t,i){return google_.callTool(s,t,i)}};
+}
+var gisP=null;
+function loadGis(){
+  if(window.google&&window.google.accounts&&window.google.accounts.oauth2)return Promise.resolve();
+  if(gisP)return gisP;
+  gisP=new Promise(function(res,rej){
+    var s=document.createElement('script');s.src='https://accounts.google.com/gsi/client';s.async=true;
+    s.onload=function(){res()};s.onerror=function(){gisP=null;rej(new Error('load'))};
+    document.head.appendChild(s);
+  });
+  return gisP;
+}
+function googleSignedOut(){sync.connected=false;paintSync()}
+function openClientDialog(){
+  var d=$('#gdlg');if(!d)return;
+  $('#gcid').value=google_.cfg().clientId||'';$('#gerr').textContent='';
+  if(d.showModal)d.showModal();else d.setAttribute('open','');
+  setTimeout(function(){try{$('#gcid').focus()}catch(e){}},0);
+}
+function googleConnect(){
+  var cid=google_.cfg().clientId;
+  if(!cid){openClientDialog();return}
+  if(!(window.google&&window.google.accounts&&window.google.accounts.oauth2)){
+    loadGis().then(function(){showNote('Google sign-in is ready. Press Connect again.')},function(){showNote('Could not load Google sign-in. Check your connection and try again.')});
+    return;
+  }
+  var tc=google.accounts.oauth2.initTokenClient({
+    client_id:cid,scope:'https://www.googleapis.com/auth/spreadsheets',
+    callback:function(r){
+      if(!r||r.error||!r.access_token){showNote('Google sign-in was not completed'+(r&&r.error?' ('+r.error+')':'')+'.');return}
+      try{localStorage.setItem(google_.tokKey,JSON.stringify({t:r.access_token,exp:Date.now()+(r.expires_in-120)*1000}))}catch(e){}
+      sync.connected=true;hideNote();syncAll();
+    },
+    error_callback:function(e){showNote('Google sign-in was closed or blocked'+(e&&e.type?' ('+e.type+')':'')+'. Allow pop-ups for this page and try again.')}
+  });
+  tc.requestAccessToken({prompt:''});
+}
+
+/* status UI */
+function ago(ts){
+  var m=Math.floor((Date.now()-ts)/60000);
+  if(m<1)return 'just now';if(m<60)return m+' min ago';
+  var h=Math.floor(m/60);if(h<24)return h+' h ago';return Math.floor(h/24)+' d ago';
+}
+function showNote(msg){var n=$('#syncnote');if(!n)return;n.innerHTML='<div class="note" role="alert"><span>'+esc(msg)+'</span><button type="button" data-sync="dismiss">Dismiss</button></div>'}
+function hideNote(){var n=$('#syncnote');if(n)n.innerHTML=''}
+function paintSync(){
+  var el=$('#sync');if(!el)return;
+  var s,txt,btn='',dirty=anyDirty();
+  if(sync.kind==='none'){s='off';txt='Saved on this device only'}
+  else if(typeof navigator!=='undefined'&&navigator.onLine===false){s='off';txt='Offline: saved on this device'; if(sync.connected)btn=''}
+  else if(!sync.connected){s='off';txt='Not connected';btn='Connect'}
+  else if(sync.busy){s='busy';txt='Syncing…'}
+  else if(sync.err){s='err';txt='Not synced';btn='Sync now'}
+  else if(dirty){s='busy';txt='Changes waiting to sync';btn='Sync now'}
+  else{s='ok';txt=sync.last?'Synced '+ago(sync.last):'Connected';btn='Refresh'}
+  el.dataset.s=s;
+  el.innerHTML='<span class="sd" aria-hidden="true"></span><span id="sync_txt">'+esc(txt)+'</span>'+(btn&&!sync.busy?'<button type="button" class="btn" id="sync_btn" data-sync="go">'+btn+'</button>':'');
+  window.ssSync={state:s,text:txt,kind:sync.kind,connected:sync.connected,dirty:getDirty(),known:sync.known};
+}
+function friendly(e){
+  var c=e&&e.code,m=e&&e.message;
+  if(c==='google_signin')return 'Your Google sign-in has expired. Press Connect to sign in again. Your changes are kept on this device.';
+  if(c==='not_granted'||c==='approval_required'||c==='consent_required')return 'Google Sheets access has not been allowed for this page. Press Connect and approve the request when claude.ai asks.';
+  if(c==='server_not_connected'||c==='needs_reauth')return 'Google Sheets is not connected in claude.ai. Connect it in your claude.ai connectors, then press Connect. Your changes are kept on this device.';
+  if(c==='blocked_by_policy')return 'Your organisation blocks the Google Sheets connector.';
+  if(c==='rate_limited')return 'Google Sheets is rate limiting requests. Wait a minute, then press Sync now.';
+  if(c==='tool_error')return 'Google Sheets reported a problem: '+(m||'unknown error')+'. Check that the Tasks, List and Projects tabs exist.';
+  if(!c&&e instanceof TypeError)return 'Could not reach Google Sheets. You may be offline. Your changes are kept on this device and will sync later.';
+  return 'Sync failed'+(m?': '+m:'')+'. Your changes are kept on this device. Press Sync now to retry.';
+}
+function authLost(e){var c=e&&e.code;return c==='google_signin'||c==='not_granted'||c==='approval_required'||c==='consent_required'||c==='server_not_connected'||c==='needs_reauth'||c==='blocked_by_policy'}
+function fail(e){
+  sync.err=true;
+  if(authLost(e))sync.connected=false;
+  showNote(friendly(e));paintSync();
+}
+
+/* sheet io */
+async function getRows(tab){
+  var r=await sync.tr.callTool('Google Sheets','get_values',{spreadsheetId:SHEET_ID,range:RANGES[tab]});
+  var v=r&&r.payload&&r.payload.values;
+  return Array.isArray(v)?v.filter(function(row){return Array.isArray(row)&&row.some(function(c){return c!==''&&c!=null})}):[];
+}
+async function pushTab(tab){
+  var rows=BUILD[tab](),n=rows.length,total=Math.max(n,sync.known[tab]||0);
+  var v0=sync.ver[tab];
+  if(total>0){
+    var out=rows.slice();
+    while(out.length<total){var pad=[];for(var i=0;i<WIDTH[tab];i++)pad.push('');out.push(pad)}
+    var last=String.fromCharCode(64+WIDTH[tab]);
+    await sync.tr.callTool('Google Sheets','update_values',{spreadsheetId:SHEET_ID,range:TABNAME[tab]+'!A2:'+last+(total+1),values:out});
+    if(tab==='list'&&!sync.headerDone){
+      await sync.tr.callTool('Google Sheets','update_values',{spreadsheetId:SHEET_ID,range:'List!G1',values:[['group']]});
+      sync.headerDone=true;
+    }
+  }
+  sync.known[tab]=n;
+  if(sync.ver[tab]===v0){var d=getDirty();delete d[tab];setDirty(d)}
+  else{clearTimeout(sync.timer);sync.timer=setTimeout(function(){flush()},1500)}
+}
+
+/* apply pulled rows; returns true if local data changed */
+function applyTasks(rows){
+  var t=Object.assign({},getTasks()),dates=lsRaw('taskdates')||{},known={};
+  ALLTASKS.forEach(function(x){known[x.id]=1});
+  rows.forEach(function(r){
+    var id=String(cell(r,0)).trim();if(!known[id])return;
+    if(truthy(cell(r,3))){t[id]=true;dates[id]=normDate(cell(r,4))||dates[id]||todayISO()}
+    else{delete t[id];delete dates[id]}
+  });
+  lsRawSet('taskdates',dates);
+  return setIfChanged('tasks',t);
+}
+function applyList(rows){
+  var rev={};Object.keys(GROUP_NAME).forEach(function(k){rev[GROUP_NAME[k].toLowerCase()]=k});
+  var seen={},out=[];
+  rows.forEach(function(r){
+    var text=String(cell(r,1)).trim(),id=String(cell(r,0)).trim();
+    if(!text&&!id)return;
+    var proj=String(cell(r,4)).trim(),g=String(cell(r,6)).trim()||rev[proj.toLowerCase()]||'manual';
+    if(!id)id=g+':'+slug(text);
+    while(seen[id])id+='-2';seen[id]=1;
+    var src=String(cell(r,3)).trim();if(SOURCES.indexOf(src)<0)src='Other';
+    out.push({id:id,text:text||id,qty:String(cell(r,2)!==''?cell(r,2):'1'),src:src,group:g,done:truthy(cell(r,5))});
+  });
+  return setIfChanged('list',out);
+}
+function applyProjects(rows){
+  var ch=false;
+  rows.forEach(function(r){
+    var key=String(cell(r,0)).trim(),obj=null;
+    var ok=key==='built'||(key.indexOf('proj_')===0&&PROJ_KEYS.indexOf(key.slice(5))>=0);
+    if(!ok)return;
+    try{obj=JSON.parse(String(cell(r,1)))}catch(e){return}
+    if(!obj||typeof obj!=='object'||Array.isArray(obj))return;
+    sync.seen[key]={v:JSON.stringify(obj),u:normDate(cell(r,2))||todayISO()};
+    if(setIfChanged(key,obj))ch=true;
+  });
+  return ch;
+}
+function setIfChanged(k,v){
+  var cur=lsGet(k,null);
+  if(JSON.stringify(cur)===JSON.stringify(v))return false;
+  sync.applying=true;try{lsSet(k,v)}finally{sync.applying=false}
+  return true;
+}
+var APPLY={tasks:applyTasks,list:applyList,projects:applyProjects};
+
+function rerender(){
+  var h=(location.hash||'').replace(/^#/,'');if(PAGES.indexOf(h)<0)h='today';
+  var ae=document.activeElement;
+  if(ae&&ae.type==='range')return; /* never yank a slider mid-drag */
+  var y=window.scrollY;
+  try{RENDER[h]()}catch(e){}
+  window.scrollTo(0,y);
+}
+
+async function syncAll(){
+  if(!sync.tr||sync.tr.kind==='none'||!sync.connected)return;
+  if(sync.busy){sync.again=true;return}
+  sync.busy=true;sync.err=false;paintSync();
+  clearTimeout(sync.timer);
+  try{
+    var tabs=['tasks','list','projects'];
+    var pulled=await Promise.all(tabs.map(getRows));
+    var changed=false;
+    for(var i=0;i<tabs.length;i++){
+      var tab=tabs[i],rows=pulled[i],dirty=getDirty()[tab];
+      sync.known[tab]=rows.length;
+      if(dirty||rows.length===0){await pushTab(tab)}   /* local edits pending, or empty tab: seed */
+      else if(APPLY[tab](rows))changed=true;
+    }
+    sync.pulledOnce=true;
+    sync.last=Date.now();try{localStorage.setItem('ss_lastsync',String(sync.last))}catch(e){}
+    hideNote();
+    if(changed)rerender();
+  }catch(e){fail(e)}
+  sync.busy=false;paintSync();
+  if(sync.again){sync.again=false;flush()}
+}
+async function flush(){
+  if(!sync.tr||!sync.connected)return;
+  if(sync.busy){sync.again=true;return}
+  var d=getDirty(),tabs=['tasks','list','projects'].filter(function(t){return d[t]});
+  if(!tabs.length)return;
+  /* a never-pulled session must pull first so we do not overwrite sheet edits */
+  if(!sync.pulledOnce){return syncAll()}
+  sync.busy=true;sync.err=false;paintSync();
+  try{
+    for(var i=0;i<tabs.length;i++)await pushTab(tabs[i]);
+    sync.last=Date.now();try{localStorage.setItem('ss_lastsync',String(sync.last))}catch(e){}
+    hideNote();
+  }catch(e){fail(e)}
+  sync.busy=false;paintSync();
+  if(sync.again){sync.again=false;flush()}
+}
+
+function syncUI(){
+  var hd=$('.top');
+  hd.insertAdjacentHTML('beforeend','<div class="sync" id="sync" role="status" aria-live="polite" data-s="off"></div>');
+  $('.top').insertAdjacentHTML('afterend','<div id="syncnote"></div>');
+  document.body.insertAdjacentHTML('beforeend','<dialog class="gd" id="gdlg"><form method="dialog" id="gform"><h3>Connect Google Sheets</h3><p class="muted" style="font-size:13.5px">Paste your Google OAuth Client ID (ends in .apps.googleusercontent.com). It is saved in this browser only.</p><label for="gcid" class="eyebrow">OAuth Client ID</label><input id="gcid" type="text" autocomplete="off" spellcheck="false"><div id="gerr" class="hint" style="color:var(--bad)"></div><div class="row"><button type="button" class="btn" id="gcancel">Cancel</button><button type="submit" class="btn btn-primary" id="gsave">Save and connect</button></div></form></dialog>');
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('[data-sync]');if(!b)return;
+    var a=b.dataset.sync;
+    if(a==='dismiss')hideNote();
+    else if(a==='go'){
+      if(!sync.connected){if(sync.kind==='google')googleConnect();else if(sync.kind==='claude')connectClaude()}
+      else syncAll();
+    }
+  });
+  $('#gcancel').addEventListener('click',function(){$('#gdlg').close()});
+  $('#gform').addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=$('#gcid').value.trim();
+    if(!/^[^\s]+\.apps\.googleusercontent\.com$/.test(v)){$('#gerr').textContent='That does not look like a Client ID. It should end with .apps.googleusercontent.com.';return}
+    google_.saveCfg({clientId:v});$('#gdlg').close();googleConnect();
+  });
+  window.addEventListener('online',function(){paintSync();if(sync.connected&&anyDirty())flush()});
+  window.addEventListener('offline',paintSync);
+  setInterval(function(){if(!sync.busy)paintSync()},30000);
+  paintSync();
+}
+async function connectClaude(){
+  sync.connected=true;await syncAll();
+}
+async function syncInit(){
+  syncUI();
+  try{sync.tr=await pickTransport()}catch(e){sync.tr={kind:'none'}}
+  sync.kind=sync.tr.kind;
+  if(sync.kind==='claude'){sync.connected=true}
+  else if(sync.kind==='google'){sync.connected=google_.valid();loadGis().catch(function(){})}
+  paintSync();
+  if(sync.connected)await syncAll();
+}
+
+/* ---- routing ---- */
+var curPage=null,RENDER={today:renderToday,garden:renderGarden,workshop:renderWorkshop,list:function(){renderList()}};
+function route(){
+  var h=(location.hash||'').replace(/^#/,'');if(PAGES.indexOf(h)<0)h='today';
+  PAGES.forEach(function(p){
+    $('#page-'+p).hidden=p!==h;
+    var tab=$('#tab-'+p);tab.setAttribute('aria-selected',p===h?'true':'false');
+  });
+  RENDER[h]();
+  if(curPage!==h){window.scrollTo(0,0);curPage=h}
+}
+function init(){
+  var now=new Date(),m=now.getMonth(),s=seasonOf(m);
+  document.documentElement.dataset.season=s;
+  $('#chip').innerHTML=MONTHS[m]+' · Ballarat · <b>'+s+'</b>';
+  seedList();
+  window.addEventListener('hashchange',route);
+  route();
+}
+init();
+syncInit();
+})();
+</script>
+
+</body>
+</html>
