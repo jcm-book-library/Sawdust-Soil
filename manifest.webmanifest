@@ -1,0 +1,14 @@
+{
+  "name": "Sawdust & Soil",
+  "short_name": "S&S",
+  "description": "Woodwork and garden companion: parametric project plans, a garden bed planner and one shopping list, backed by my Google Sheet.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#121714",
+  "theme_color": "#121714",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
